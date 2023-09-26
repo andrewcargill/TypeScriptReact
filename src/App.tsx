@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage';
 import AddRiders from './components/AddRiders'
 import TimerFunction from './components/TimerFunction';
 import DisplayRiders from './components/DisplayRiders';
+import Competition from './pages/CompetitionPage';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/timer" element={<TimerFunction />} />
         <Route path="/addriders" element={<AddRiders />} />
         <Route path="/displayriders" element={<DisplayRiders />} />
+        <Route path="/competition" element={<Competition />} />
       </Routes>
     </Router>
   );
