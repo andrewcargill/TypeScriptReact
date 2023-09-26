@@ -4,10 +4,10 @@ import { ThemeProvider } from '@mui/material/styles';
 import theme from './theme';
 import './App.css';
 import HomePage from './pages/HomePage';
-import AddRiders from './components/AddRiders'
+import AddRiders from './pages/Competition/Bottom/AddRiders'
 import TimerFunction from './components/TimerFunction';
-import DisplayRiders from './components/DisplayRiders';
-import Competition from './pages/CompetitionPage';
+import DisplayRiders from './pages/Competition/Bottom/DisplayRiders';
+import Competition from './pages/Competition/CompetitionPage';
 
 function App() {
   return (

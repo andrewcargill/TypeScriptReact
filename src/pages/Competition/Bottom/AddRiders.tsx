@@ -1,5 +1,5 @@
 import React from 'react';
-import { useAppContext } from '../AppState';
+import { useAppContext } from '../../../AppState';
 
 function NameList() {
   const { storedNames, updateStoredNames } = useAppContext();

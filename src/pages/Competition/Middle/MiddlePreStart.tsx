@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { useAppContext } from '../AppState'; // Import the context hook
+import { useAppContext } from '../../../AppState'; // Import the context hook
 
-function ResultsSection() {
+function MiddlePreStart() {
   const { storedNames, updateStoredNames } = useAppContext();
   const { isActive, toggleActive } = useAppContext(); 
 
@@ -10,8 +10,17 @@ function ResultsSection() {
     <div>
       <div>
         <p>Competition Status: {isActive ? 'Active' : 'Inactive'}</p>
+        <div>
+          <p>
+          Get Ready to ride! 
+          </p>
+          <p>
+            The first rider will be: {storedNames[0]}
+          </p>
+          
+          </div>
         <button onClick={toggleActive}>
-          {isActive ? 'End Comp' : 'Start Comp'}
+          {isActive ? 'End Comp' : 'Start Timer'}
         </button>
       </div>
       <div>
@@ -24,4 +33,4 @@ function ResultsSection() {
   );
 }
 
-export default ResultsSection;
+export default MiddlePreStart;

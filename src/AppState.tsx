@@ -3,7 +3,9 @@ import React, { createContext, useContext, useState, ReactNode } from 'react';
 // Define the shape of the global state
 interface AppState {
   isActive: boolean;
+  ridersReady: boolean;
   toggleActive: () => void;
+  handleRidersReady: () => void;
   storedNames: string[];
   updateStoredNames: (names: string[]) => void;
 }
@@ -25,6 +27,13 @@ interface AppProviderProps {
 export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
   const [isActive, setIsActive] = useState<boolean>(false);
   const [storedNames, setStoredNames] = useState<string[]>([]);
+  const [ridersReady, setRidersReady] = useState<boolean>(false);
+
+    const handleRidersReady = () => {
+        setRidersReady(!ridersReady);
+        console.log('riders ready: ' + ridersReady);
+      };
+      
 
   const toggleActive = () => {
     setIsActive((prevActive) => !prevActive);
@@ -41,6 +50,8 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
     toggleActive,
     storedNames,
     updateStoredNames,
+    handleRidersReady,
+    ridersReady,
   };
 
   return <AppContext.Provider value={state}>{children}</AppContext.Provider>;

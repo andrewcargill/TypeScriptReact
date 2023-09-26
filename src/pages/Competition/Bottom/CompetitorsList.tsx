@@ -4,6 +4,7 @@ import Typography from '@mui/material/Typography';
 import AddRiders from './AddRiders';
 import { Button } from '@mui/material';
 import DisplayRiders from './DisplayRiders';
+import { useAppContext } from '../../../AppState'; 
 
 function CompetitorsList() {
     const containerStyle: React.CSSProperties = {
@@ -15,25 +16,20 @@ function CompetitorsList() {
         marginTop: '20px',
     };
 
-    const [showAddRiders, setShowAddRiders] = useState(true);
-
-    const handleStartClick = () => {
-        setShowAddRiders(!showAddRiders);
-      };
-      
+    const {ridersReady, handleRidersReady} = useAppContext();
 
     return (
         <div>
             <h5>Competitors Component</h5>
-            {showAddRiders ? (
+            {ridersReady ? (
 
                 <AddRiders />
             ) : (
                 <DisplayRiders />
             )}
             <div>
-                <Button onClick={handleStartClick}>
-                    {showAddRiders ? (
+                <Button onClick={handleRidersReady}>
+                    {ridersReady ? (
 
                         'start competition'
                     ) : (
