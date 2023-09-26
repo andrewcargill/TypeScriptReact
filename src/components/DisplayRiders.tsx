@@ -1,16 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { useAppContext } from '../AppState';
 
 function DisplayRiders() {
-  const [storedNames, setStoredNames] = useState<string[]>([]);
+  const { storedNames, updateStoredNames } = useAppContext();
 
-  useEffect(() => {
-    // Load stored names from local storage when the component mounts
-    const storedNamesData = localStorage.getItem('names');
-    if (storedNamesData) {
-      const parsedNames = JSON.parse(storedNamesData);
-      setStoredNames(parsedNames);
-    }
-  }, []);
 
   return (
     <div>
