@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import AddRiders from '../components/AddRiders';
+import AddRiders from './AddRiders';
 import { Button } from '@mui/material';
-import DisplayRiders from '../components/DisplayRiders';
-import CompetitorsList from '../components/CompetitorsList';
-import Timer from '../components/TimerFunction';
+import DisplayRiders from './DisplayRiders';
 
-function Competition() {
+function CompetitorsList() {
   const containerStyle: React.CSSProperties = {
     display: 'flex',
     flexDirection: 'column',
@@ -24,14 +22,20 @@ function Competition() {
   };
 
   return (
-    <Container style={containerStyle}>
-      <Typography variant="h4"><Timer /> </Typography>
-      <Typography variant="h4">2</Typography>
-      <Typography variant="h4">
-      <CompetitorsList />
-      </Typography>
-    </Container>
+    <div>
+        <h5>Competitors Component</h5>
+        {showAddRiders ? (
+
+          <AddRiders />
+        ) : (
+          <DisplayRiders />
+        )}
+        <div>
+          <Button onClick={handleStartClick}>START</Button>
+        </div>
+     
+    </div>
   );
 }
 
-export default Competition;
+export default CompetitorsList;

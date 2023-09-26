@@ -22,7 +22,7 @@ function NameList({
 
   return (
     <div>
-      <h2>Add Riders</h2>
+      <h3>Add Riders</h3>
       {names.map((name, index) => (
         <div key={index}>
           <input
@@ -38,14 +38,15 @@ function NameList({
       ))}
       <button onClick={onAddName}>Add Name</button>
       <button onClick={handleStoreNames}>Store</button>
-      <div>
+
+      {/* <div>
         <h2>Rider List</h2>
         <ul>
           {names.map((name, index) => (
             <li key={index}>{name}</li>
           ))}
         </ul>
-      </div>
+      </div> */}
     </div>
   );
 }
