@@ -6,36 +6,45 @@ import { Button } from '@mui/material';
 import DisplayRiders from './DisplayRiders';
 
 function CompetitorsList() {
-  const containerStyle: React.CSSProperties = {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    maxWidth: '500px',
-    margin: '0 auto',
-    marginTop: '20px',
-  };
+    const containerStyle: React.CSSProperties = {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        maxWidth: '500px',
+        margin: '0 auto',
+        marginTop: '20px',
+    };
 
-  const [showAddRiders, setShowAddRiders] = useState(true);
+    const [showAddRiders, setShowAddRiders] = useState(true);
 
-  const handleStartClick = () => {
-    setShowAddRiders(false);
-  };
+    const handleStartClick = () => {
+        setShowAddRiders(!showAddRiders);
+      };
+      
 
-  return (
-    <div>
-        <h5>Competitors Component</h5>
-        {showAddRiders ? (
-
-          <AddRiders />
-        ) : (
-          <DisplayRiders />
-        )}
+    return (
         <div>
-          <Button onClick={handleStartClick}>START</Button>
+            <h5>Competitors Component</h5>
+            {showAddRiders ? (
+
+                <AddRiders />
+            ) : (
+                <DisplayRiders />
+            )}
+            <div>
+                <Button onClick={handleStartClick}>
+                    {showAddRiders ? (
+
+                        'start competition'
+                    ) : (
+                        'edit names'
+                    )}
+
+                </Button>
+            </div>
+
         </div>
-     
-    </div>
-  );
+    );
 }
 
 export default CompetitorsList;

@@ -1,5 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { ThemeProvider } from '@mui/material/styles';
+import theme from './theme';
 import './App.css';
 import HomePage from './pages/HomePage';
 import AddRiders from './components/AddRiders'
@@ -9,6 +11,7 @@ import Competition from './pages/CompetitionPage';
 
 function App() {
   return (
+    <ThemeProvider theme={theme}>
     <Router basename={`/${process.env.PUBLIC_URL}`}>
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -18,6 +21,7 @@ function App() {
         <Route path="/competition" element={<Competition />} />
       </Routes>
     </Router>
+    </ThemeProvider>
   );
 }
 

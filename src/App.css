@@ -1,3 +1,7 @@
+p {
+  font-size: 14px;
+}
+
 .App {
   text-align: center;
 }
@@ -5,6 +9,18 @@
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.top-box {
+  background-color: red;
+}
+
+.middle-box {
+  background-color: green;
+}
+
+.bottom-box {
+  background-color: lightcoral;
 }
 
 @media (prefers-reduced-motion: no-preference) {

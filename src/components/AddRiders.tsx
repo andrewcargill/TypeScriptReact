@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
+
 interface NameListProps {
   names: string[];
   onNameChange: (index: number, value: string) => void;
@@ -22,7 +23,7 @@ function NameList({
 
   return (
     <div>
-      <h3>Add Riders</h3>
+      <div>Add Riders</div>
       {names.map((name, index) => (
         <div key={index}>
           <input
@@ -38,6 +39,9 @@ function NameList({
       ))}
       <button onClick={onAddName}>Add Name</button>
       <button onClick={handleStoreNames}>Store</button>
+      
+
+     
 
       {/* <div>
         <h2>Rider List</h2>
@@ -53,6 +57,7 @@ function NameList({
 
 export default function App() {
   const [names, setNames] = useState<string[]>(['']);
+ 
 
   useEffect(() => {
     // Load names from local storage when the component mounts

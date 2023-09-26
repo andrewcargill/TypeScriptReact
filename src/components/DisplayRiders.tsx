@@ -14,7 +14,7 @@ function DisplayRiders() {
 
   return (
     <div>
-      <h2>Riders List</h2>
+      <div>Riders List</div>
       <ul>
         {storedNames.map((name, index) => (
           <div key={index}>{index + 1}: {name}</div>
