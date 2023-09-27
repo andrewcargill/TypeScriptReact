@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
+import React from 'react';
 import AddRiders from './AddRiders';
 import { Button } from '@mui/material';
 import DisplayRiders from './DisplayRiders';
-import { useAppContext } from '../../../AppState'; 
+import { useAppContext } from '../../../AppState';
 
 function CompetitorsList() {
     const containerStyle: React.CSSProperties = {
@@ -16,29 +14,42 @@ function CompetitorsList() {
         marginTop: '20px',
     };
 
-    const {ridersReady, handleRidersReady} = useAppContext();
+    const { ridersReady, handleRidersReady, storedNames, isActive } = useAppContext();
+
+    const handleButtonClick = () => {
+        console.log('storedNames: ' + storedNames);
+        if (storedNames.some(name => typeof name === 'string' && name.trim() !== '')) {
+            
+            handleRidersReady();
+        } else {
+            // Display a message or handle the case when storedNames is empty
+            alert('Please add at least one rider\'s name.');
+        }
+    };
 
     return (
         <div>
             <h5>Competitors Component</h5>
             {ridersReady ? (
-
                 <AddRiders />
             ) : (
                 <DisplayRiders />
             )}
             <div>
-                <Button onClick={handleRidersReady}>
+                {isActive ? (
+                    'competition active'
+                ):(
+                    <Button onClick={handleButtonClick}>
                     {ridersReady ? (
-
-                        'start competition'
+                        'Start competition'
                     ) : (
-                        'edit names'
+                        'Edit names'
                     )}
-
                 </Button>
-            </div>
+                )}
 
+                
+            </div>
         </div>
     );
 }

@@ -27,7 +27,7 @@ interface AppProviderProps {
 export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
   const [isActive, setIsActive] = useState<boolean>(false);
   const [storedNames, setStoredNames] = useState<string[]>([]);
-  const [ridersReady, setRidersReady] = useState<boolean>(false);
+  const [ridersReady, setRidersReady] = useState<boolean>(true);
 
     const handleRidersReady = () => {
         setRidersReady(!ridersReady);
