@@ -1,13 +1,9 @@
 import React, { useState, useContext } from 'react';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import AddRiders from './Bottom/AddRiders';
-import { Button } from '@mui/material';
-import DisplayRiders from './Bottom/DisplayRiders';
 import CompetitorsList from './Bottom/CompetitorsList';
-import Timer from '../../components/TimerFunction';
-import ResultsSection from './Middle/ResultsSection';
 import MiddleMainContainer from './Middle/MiddleMainContainer';
+import TopMainContainer from './Top/TopMainContainer';
 
 function Competition() {
 
@@ -24,7 +20,7 @@ function Competition() {
 
     return (
         <Container style={containerStyle}>
-            <Typography className='top-box' variant="h4"><Timer /> </Typography>
+            <Typography className='top-box' variant="h4"><TopMainContainer /></Typography>
             <Typography className='middle-box' variant="h4">
                 <MiddleMainContainer />
                 </Typography>
