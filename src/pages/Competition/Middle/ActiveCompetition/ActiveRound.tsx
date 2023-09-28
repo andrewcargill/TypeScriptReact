@@ -9,8 +9,8 @@ function ActiveRound() {
   return (
     <div>
       <div>
-      
-        <div>Rider on Course</div>
+        <div><p>(activeRound)</p></div>
+       
         <button onClick={toggleTimer} >
           STOP
         </button>
