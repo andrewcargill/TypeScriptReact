@@ -18,7 +18,8 @@ function CompetitorsList() {
 
     const handleButtonClick = () => {
         console.log('storedNames: ' + storedNames);
-        if (storedNames.some(name => typeof name === 'string' && name.trim() !== '')) {
+        if (storedNames.some(rider => typeof rider.name === 'string' && rider.name.trim() !== '')) {
+
             
             handleRidersReady();
         } else {

@@ -16,7 +16,7 @@ function ResultsSection() {
         </button>
       </div>
       <div>
-      {storedNames[0]}
+      {storedNames[0].name}
       </div>
        
       

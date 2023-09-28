@@ -15,7 +15,7 @@ function MiddlePreStart() {
           Get Ready to ride! 
           </p>
           <p>
-            The first rider will be: {storedNames[0]}
+            The first rider will be: {storedNames[0].name}
           </p>
           
           </div>
@@ -24,7 +24,7 @@ function MiddlePreStart() {
         </button>
       </div>
       <div>
-      {storedNames[0]}
+      {storedNames[0].name}
       </div>
        
       

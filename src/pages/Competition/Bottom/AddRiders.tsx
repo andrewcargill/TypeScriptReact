@@ -1,12 +1,19 @@
 import React from 'react';
 import { useAppContext } from '../../../AppState';
 
+interface Rider {
+  name: string;
+  time: string;
+  next: boolean;
+  finished: boolean;
+}
+
 function NameList() {
   const { storedNames, updateStoredNames } = useAppContext();
 
   const handleNameChange = (index: number, value: string) => {
     const updatedNames = [...storedNames];
-    updatedNames[index] = value;
+    updatedNames[index].name = value;
     updateStoredNames(updatedNames);
   };
 
@@ -17,19 +24,19 @@ function NameList() {
   };
 
   const handleAddName = () => {
-    const updatedNames = [...storedNames, ''];
+    const updatedNames = [...storedNames, { name: '', time: '', next: false, finished: false }];
     updateStoredNames(updatedNames);
   };
 
   return (
     <div>
       <div>Add Riders</div>
-      {storedNames.map((name, index) => (
+      {storedNames.map((rider: Rider, index: number) => (
         <div key={index}>
           <input
             type="text"
             placeholder="Enter a name"
-            value={name}
+            value={rider.name}
             onChange={(e) => handleNameChange(index, e.target.value)}
           />
           {index > 0 && (
@@ -38,7 +45,6 @@ function NameList() {
         </div>
       ))}
       <button onClick={handleAddName}>Add Name</button>
-    
     </div>
   );
 }
