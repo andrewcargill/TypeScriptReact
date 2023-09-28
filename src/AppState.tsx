@@ -10,9 +10,11 @@ interface Rider {
 
 // Define the shape of the global state
 interface AppState {
+  activeTimer: boolean;
   isActive: boolean;
   ridersReady: boolean;
   toggleActive: () => void;
+  toggleTimer: () => void;
   handleRidersReady: () => void;
   storedNames: Rider[]; 
   updateStoredNames: (names: Rider[]) => void;
@@ -36,13 +38,17 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
   const [isActive, setIsActive] = useState<boolean>(false);
   const [storedNames, setStoredNames] = useState<Rider[]>([]);
   const [ridersReady, setRidersReady] = useState<boolean>(true);
+  const [activeTimer, setActiveTimer] = useState<boolean>(false);
   console.log('state of isActive:' + isActive)
+  console.log('activeTimer: ' + activeTimer);
 
   const handleRidersReady = () => {
     setRidersReady(!ridersReady);
     console.log('riders ready: ' + ridersReady);
   };
-
+  const toggleTimer = () => {
+    setActiveTimer((prevActive) => !prevActive);
+  };
   const toggleActive = () => {
     setIsActive((prevActive) => !prevActive);
   };
@@ -58,7 +64,9 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
     storedNames,
     updateStoredNames,
     handleRidersReady,
+    toggleTimer,
     ridersReady,
+    activeTimer,
   };
 
   return <AppContext.Provider value={state}>{children}</AppContext.Provider>;

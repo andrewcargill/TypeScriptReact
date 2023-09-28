@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAppContext } from '../../../AppState'; // Import the context hook
+import TimerActiveContainer from './TimerActive/TimeActiveContainer';
+
 
 function TopActiveComp() {
   
@@ -8,7 +10,7 @@ function TopActiveComp() {
   return (
     <div>
       <div>
-        <p>Compition is Active</p> 
+        <TimerActiveContainer />
       </div>
     </div>
   );
