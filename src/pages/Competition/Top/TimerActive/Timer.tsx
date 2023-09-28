@@ -17,10 +17,13 @@ function Timer() {
   };
 
   const stopTimer = () => {
+    console.log('StopTimer Function')
     if (isRunning && intervalId !== null) {
+
       clearInterval(intervalId);
       setIntervalId(null);
       setIsRunning(false);
+      console.log('isRunning: ' + !isRunning); 
       // Update the activeTimer state here
       // For example:
       // setActiveTimer(false);
@@ -39,8 +42,10 @@ function Timer() {
   useEffect(() => {
     if (activeTimer) {
       startTimer();
+      console.log('starting timer')
     } else {
       stopTimer();
+      console.log('Stop Timer called')
     }
   }, [activeTimer]); // Add activeTimer as a dependency
 
@@ -61,12 +66,12 @@ function Timer() {
 
   return (
     <div>
-      <div>Timer Function Module</div>
+      <div><p>(timer)</p></div>
       <div id="timer">{formatTime(elapsedTime)}</div>
-      <button onClick={isRunning ? stopTimer : startTimer}>
+      {/* <button onClick={isRunning ? stopTimer : startTimer}>
         {isRunning ? 'Stop' : 'Start'}
       </button>
-      <button onClick={resetTimer}>Reset</button>
+      <button onClick={resetTimer}>Reset</button> */}
     </div>
   );
 }

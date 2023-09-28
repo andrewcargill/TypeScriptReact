@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-function Timer() {
+function TimerComponent() {
   const [isRunning, setIsRunning] = useState(false);
   const [elapsedTime, setElapsedTime] = useState(0);
   const [intervalId, setIntervalId] = useState<number | null>(null);
@@ -57,4 +57,4 @@ function Timer() {
   );
 }
 
-export default Timer;
+export default TimerComponent;
