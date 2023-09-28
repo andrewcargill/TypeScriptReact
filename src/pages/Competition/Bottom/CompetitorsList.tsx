@@ -14,12 +14,13 @@ function CompetitorsList() {
         marginTop: '20px',
     };
 
-    const { ridersReady, handleRidersReady, storedNames, isActive } = useAppContext();
+    const { ridersReady, handleRidersReady, storedNames, updateStoredNames, isActive } = useAppContext();
 
     const handleButtonClick = () => {
         console.log('storedNames: ' + storedNames);
         if (storedNames.some(rider => typeof rider.name === 'string' && rider.name.trim() !== '')) {
-
+            const updatedNames = [...storedNames];
+            updatedNames[0].next = true;
             
             handleRidersReady();
         } else {

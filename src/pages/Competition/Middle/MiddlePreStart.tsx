@@ -5,6 +5,12 @@ function MiddlePreStart() {
   const { storedNames, updateStoredNames } = useAppContext();
   const { isActive, toggleActive } = useAppContext(); 
 
+  const findNextRider = () => {
+    return storedNames.find((rider) => rider.next === true);
+  };
+
+  const nextRider = findNextRider();
+
 
   return (
     <div>
@@ -15,7 +21,7 @@ function MiddlePreStart() {
           Get Ready to ride! 
           </p>
           <p>
-            The first rider will be: {storedNames[0].name}
+            The first rider will be: {nextRider?.name || 'None'}
           </p>
           
           </div>

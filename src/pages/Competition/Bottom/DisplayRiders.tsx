@@ -1,16 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useAppContext } from '../../../AppState';
 
 function DisplayRiders() {
-  const { storedNames, updateStoredNames } = useAppContext();
+  const { storedNames } = useAppContext();
 
+  const unfinishedRiders = storedNames.filter((rider) => !rider.finished);
 
   return (
     <div>
       <div>Riders List</div>
       <ul>
-        {storedNames.map((name, index) => (
-          <div key={index}>{index + 1}: {storedNames[index].name}</div>
+        {unfinishedRiders.map((rider, index) => (
+          <div
+            key={index}
+            style={{ fontWeight: rider.next ? 'bold' : 'normal' }}
+          >
+            {index + 1}: {rider.name}
+          </div>
         ))}
       </ul>
     </div>
