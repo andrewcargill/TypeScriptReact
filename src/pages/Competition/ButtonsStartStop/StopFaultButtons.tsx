@@ -23,7 +23,7 @@ const StopFaultButtons: React.FC<StopFaultButtonsProps> = () => {
 
   const handleButtonClick = () => {
     // Ensure timerValue is not null before proceeding
-    if (timerValue !== null) {
+    if (timerValue !== 0) {
       toggleTimer();
       if (nextRider >= 0 && nextRider < storedNames.length) {
         // Create a copy of the storedNames array
