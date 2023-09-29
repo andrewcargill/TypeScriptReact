@@ -3,7 +3,7 @@ import { useAppContext } from '../../../AppState';
 
 interface Rider {
   name: string;
-  time: string;
+  time: number;
   finished: boolean;
 }
 
@@ -23,7 +23,7 @@ function NameList() {
   };
 
   const handleAddName = () => {
-    const updatedNames = [...storedNames, { name: '', time: '', finished: false }];
+    const updatedNames = [...storedNames, { name: '', time:0, finished: false }];
     updateStoredNames(updatedNames);
   };
 

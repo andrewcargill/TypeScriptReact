@@ -3,7 +3,7 @@ import React, { createContext, useContext, useState, ReactNode } from 'react';
 // Define the shape of the Rider object
 interface Rider {
   name: string;
-  time: string;
+  time: number;
   finished: boolean;
 }
 
@@ -18,7 +18,10 @@ interface AppState {
   storedNames: Rider[]; 
   updateStoredNames: (names: Rider[]) => void;
   nextRider: number;
+  timerValue: number;
   updateNextRider: (index: number) => void;
+  updateTimerValue: (time: number) => void;
+
 }
 
 const AppContext = createContext<AppState | undefined>(undefined);
@@ -41,13 +44,19 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
   const [ridersReady, setRidersReady] = useState<boolean>(true);
   const [activeTimer, setActiveTimer] = useState<boolean>(false);
   const [nextRider, setNextRider] = useState<number>(0);
+  const [timerValue, setTimerValue] = useState<number>(0);
   console.log('state of isActive:' + isActive)
   console.log('activeTimer: ' + activeTimer);
   console.log(storedNames);
-  console.log('nextRider: ' + String(nextRider))
+  console.log('nextRider: ' + String(nextRider));
+  console.log('timerValue: ' + String(timerValue));
 
   const updateNextRider = (index: number) => {
     setNextRider(index);
+  };
+
+  const updateTimerValue= (time: number) => {
+    setTimerValue(time);
   };
 
   const handleRidersReady = () => {
@@ -77,6 +86,8 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
     activeTimer,
     nextRider,
     updateNextRider,
+    timerValue,
+    updateTimerValue,
   };
 
   return <AppContext.Provider value={state}>{children}</AppContext.Provider>;

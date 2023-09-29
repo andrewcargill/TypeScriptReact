@@ -1,29 +1,44 @@
 import React from 'react';
 import { useAppContext } from '../../../AppState';
 
-function StopFaultButtons() {
-  const { storedNames, updateStoredNames, nextRider, updateNextRider } = useAppContext();
-  const { isActive, toggleTimer } = useAppContext();
+interface StopFaultButtonsProps {
+  // Define your component's props here
+}
+
+const StopFaultButtons: React.FC<StopFaultButtonsProps> = () => {
+  const {
+    storedNames,
+    updateStoredNames,
+    nextRider,
+    updateNextRider,
+    timerValue,
+    isActive,
+    toggleTimer,
+  } = useAppContext();
 
   const findNextRider = () => {
     // Find the index of the next rider
     return storedNames.findIndex((rider) => rider.finished === false);
   };
 
-  const handleFinishedClick = () => {
-    toggleTimer();
-    if (nextRider >= 0 && nextRider < storedNames.length) {
-      // Create a copy of the storedNames array
-      const updatedNames = [...storedNames];
-      // Set the 'finished' property to true for the next rider
-      updatedNames[nextRider].finished = true;
+  const handleButtonClick = () => {
+    // Ensure timerValue is not null before proceeding
+    if (timerValue !== null) {
+      toggleTimer();
+      if (nextRider >= 0 && nextRider < storedNames.length) {
+        // Create a copy of the storedNames array
+        const updatedNames = [...storedNames];
+        // Set the 'finished' property to true for the next rider
+        updatedNames[nextRider].finished = true;
+        updatedNames[nextRider].time = timerValue;
 
-      // Update nextRider to the next unfinished rider, if available
-      const nextUnfinishedRider = findNextRider();
-      updateNextRider(nextUnfinishedRider);
+        // Update nextRider to the next unfinished rider, if available
+        const nextUnfinishedRider = findNextRider();
+        updateNextRider(nextUnfinishedRider);
 
-      // Update the storedNames array with the modified riders
-      updateStoredNames(updatedNames);
+        // Update the storedNames array with the modified riders
+        updateStoredNames(updatedNames);
+      }
     }
   };
 
@@ -38,7 +53,9 @@ function StopFaultButtons() {
             <div>
               <button onClick={toggleTimer}>STOP</button>
               <button>FAULT</button>
-              <button onClick={handleFinishedClick}>FINISHED</button>
+              {timerValue !== null && (
+                <button onClick={handleButtonClick}>FINISHED</button>
+              )}
             </div>
           ) : (
             <div>
@@ -49,6 +66,6 @@ function StopFaultButtons() {
       </div>
     </div>
   );
-}
+};
 
 export default StopFaultButtons;

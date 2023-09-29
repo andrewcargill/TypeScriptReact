@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useAppContext } from '../../../../AppState';
 
 function Timer() {
-  const { activeTimer } = useAppContext();
+  const { activeTimer, updateTimerValue } = useAppContext();
 
   const [isRunning, setIsRunning] = useState(false);
   const [elapsedTime, setElapsedTime] = useState(0);
@@ -23,7 +23,8 @@ function Timer() {
       clearInterval(intervalId);
       setIntervalId(null);
       setIsRunning(false);
-      console.log('isRunning: ' + !isRunning); 
+      updateTimerValue(elapsedTime);
+      console.log('isRunning: ' + !isRunning);
       // Update the activeTimer state here
       // For example:
       // setActiveTimer(false);
@@ -47,7 +48,7 @@ function Timer() {
       stopTimer();
       console.log('Stop Timer called')
     }
-  }, [activeTimer]); // Add activeTimer as a dependency
+  }, [activeTimer]);
 
   useEffect(() => {
     return () => {
