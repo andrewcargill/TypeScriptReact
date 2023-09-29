@@ -11,12 +11,11 @@ function ActiveRound() {
       <div>
         <div><p>(activeRound)</p></div>
        
-        <button onClick={toggleTimer} >
-          STOP
-        </button>
-        <button >
-          FAULT
-        </button>
+        <div>
+          <p>
+            results placeholder
+          </p>
+        </div>
       </div>
 
        

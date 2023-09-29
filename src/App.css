@@ -13,14 +13,17 @@ p {
 
 .top-box {
   background-color: red;
+  width: 100%;
 }
 
 .middle-box {
   background-color: green;
+  width: 100%;
 }
 
 .bottom-box {
   background-color: lightcoral;
+  width: 100%;
 }
 
 @media (prefers-reduced-motion: no-preference) {

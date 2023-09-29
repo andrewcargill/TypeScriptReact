@@ -41,6 +41,7 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
   const [activeTimer, setActiveTimer] = useState<boolean>(false);
   console.log('state of isActive:' + isActive)
   console.log('activeTimer: ' + activeTimer);
+  console.log(storedNames);
 
   const handleRidersReady = () => {
     setRidersReady(!ridersReady);
@@ -55,7 +56,7 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
 
   const updateStoredNames = (names: Rider[]) => {
     setStoredNames(names);
-    console.log(storedNames);
+   
   };
 
   const state: AppState = {

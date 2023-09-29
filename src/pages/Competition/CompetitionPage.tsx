@@ -4,6 +4,8 @@ import Typography from '@mui/material/Typography';
 import CompetitorsList from './Bottom/CompetitorsList';
 import MiddleMainContainer from './Middle/MiddleMainContainer';
 import TopMainContainer from './Top/TopMainContainer';
+import ActiveRound from './Middle/ActiveCompetition/ActiveRound';
+import StopFaultButtons from './ButtonsStartStop/StopFaultButtons';
 
 function Competition() {
 
@@ -16,11 +18,12 @@ function Competition() {
         marginTop: '20px',
     };
 
-    
-
     return (
         <Container style={containerStyle}>
             <Typography className='top-box' variant="h4"><TopMainContainer /></Typography>
+            <Typography className='middle-box' variant="h4">
+               <StopFaultButtons />
+                </Typography>
             <Typography className='middle-box' variant="h4">
                 <MiddleMainContainer />
                 </Typography>
