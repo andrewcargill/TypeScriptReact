@@ -11,6 +11,7 @@ function StopFaultButtons() {
   };
 
   const handleFinishedClick = () => {
+    toggleTimer();
     if (nextRider >= 0 && nextRider < storedNames.length) {
       // Create a copy of the storedNames array
       const updatedNames = [...storedNames];
