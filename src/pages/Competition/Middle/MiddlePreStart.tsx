@@ -1,28 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useAppContext } from '../../../AppState'; // Import the context hook
 import ActiveRound from './ActiveCompetition/ActiveRound';
 
 function MiddlePreStart() {
-  const { storedNames, updateStoredNames } = useAppContext();
+  const { storedNames, updateStoredNames, nextRider } = useAppContext();
   const { isActive, toggleActive, toggleTimer } = useAppContext();
-
-  const findNextRider = () => {
-    return storedNames.find((rider) => rider.next === true);
-  };
-
-  const nextRider = findNextRider();
 
   const handleToggleActiveAndToggleTimer = () => {
     toggleActive();
     toggleTimer();
   }
 
-
   return (
     <div>
       <div>
         <div><p>(MiddlePreStart)</p></div>
-        
+
         {/* Active round screen toggled on isActive state */}
         <div>
           {isActive ? <ActiveRound /> :
@@ -31,7 +24,7 @@ function MiddlePreStart() {
                 Get Ready to ride!
               </p>
               <p>
-                The first rider will be: {nextRider?.name || 'None'}
+                The first rider will be: {nextRider !== -1 ? storedNames[nextRider]?.name : 'None'}
               </p>
             </div>
           }</div>
@@ -40,12 +33,6 @@ function MiddlePreStart() {
           {isActive ? 'End Comp' : 'Start Timer'}
         </button>
       </div>
-      <div>
-        {storedNames[0].name}
-      </div>
-
-
-
     </div>
   );
 }

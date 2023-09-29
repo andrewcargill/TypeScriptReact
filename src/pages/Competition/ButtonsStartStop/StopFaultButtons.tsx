@@ -2,43 +2,27 @@ import React from 'react';
 import { useAppContext } from '../../../AppState';
 
 function StopFaultButtons() {
-  const { storedNames, updateStoredNames } = useAppContext();
+  const { storedNames, updateStoredNames, nextRider, updateNextRider } = useAppContext();
   const { isActive, toggleTimer } = useAppContext();
 
   const findNextRider = () => {
-    return storedNames.find((rider) => rider.next === true);
+    // Find the index of the next rider
+    return storedNames.findIndex((rider) => rider.finished === false);
   };
-  const nextRider = findNextRider();
-
-  const findFinishedRider = () => {
-    return storedNames.find((rider) => rider.finished === true);
-  };
-  const finishedRider = findNextRider();
 
   const handleFinishedClick = () => {
-    if (nextRider) {
+    if (nextRider >= 0 && nextRider < storedNames.length) {
       // Create a copy of the storedNames array
       const updatedNames = [...storedNames];
-      // Find the index of the next rider
-      const index = updatedNames.indexOf(nextRider);
-      if (index !== -1) {
-        // Set the 'finished' property to true for the next rider
-        updatedNames[index].finished = true;
-        updatedNames[index].next = false;
-          // Find the last rider with 'finished' set to true
-      const lastFinishedIndex = updatedNames
-      .map((rider, i) => (rider.finished ? i : -1))
-      .filter((index) => index !== -1)
-      .pop();
+      // Set the 'finished' property to true for the next rider
+      updatedNames[nextRider].finished = true;
 
-    // Set the next rider based on the last finished rider
-    if (lastFinishedIndex !== undefined && lastFinishedIndex + 1 < updatedNames.length) {
-      updatedNames[lastFinishedIndex + 1].next = true;
-    }
+      // Update nextRider to the next unfinished rider, if available
+      const nextUnfinishedRider = findNextRider();
+      updateNextRider(nextUnfinishedRider);
 
-    // Update the storedNames array with the modified riders
-    updateStoredNames(updatedNames);
-      }
+      // Update the storedNames array with the modified riders
+      updateStoredNames(updatedNames);
     }
   };
 

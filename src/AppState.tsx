@@ -4,7 +4,6 @@ import React, { createContext, useContext, useState, ReactNode } from 'react';
 interface Rider {
   name: string;
   time: string;
-  next: boolean;
   finished: boolean;
 }
 
@@ -18,6 +17,8 @@ interface AppState {
   handleRidersReady: () => void;
   storedNames: Rider[]; 
   updateStoredNames: (names: Rider[]) => void;
+  nextRider: number;
+  updateNextRider: (index: number) => void;
 }
 
 const AppContext = createContext<AppState | undefined>(undefined);
@@ -39,9 +40,15 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
   const [storedNames, setStoredNames] = useState<Rider[]>([]);
   const [ridersReady, setRidersReady] = useState<boolean>(true);
   const [activeTimer, setActiveTimer] = useState<boolean>(false);
+  const [nextRider, setNextRider] = useState<number>(0);
   console.log('state of isActive:' + isActive)
   console.log('activeTimer: ' + activeTimer);
   console.log(storedNames);
+  console.log('nextRider: ' + String(nextRider))
+
+  const updateNextRider = (index: number) => {
+    setNextRider(index);
+  };
 
   const handleRidersReady = () => {
     setRidersReady(!ridersReady);
@@ -68,6 +75,8 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
     toggleTimer,
     ridersReady,
     activeTimer,
+    nextRider,
+    updateNextRider,
   };
 
   return <AppContext.Provider value={state}>{children}</AppContext.Provider>;
