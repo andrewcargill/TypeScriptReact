@@ -114,6 +114,28 @@ td {
   vertical-align: middle; /* Center the text vertically */
 }
 
+/* Bottom Container */
+.start-list-container {
+
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+}
+
+.start-list-table {
+  background-color: red;
+  width: 50%;
+}
+
+.start-list-tbody {
+  background-color: green;
+}
+
+
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

@@ -7,21 +7,29 @@ function DisplayRiders() {
   const unfinishedRiders = storedNames.filter((rider) => !rider.finished);
 
   return (
-    <div>
+    <div className='start-list-container'>
       <div>Riders List</div>
-      <ul>
-        {storedNames.map((rider, index) => (
-          <div
-            key={index}
-            style={{
-              fontWeight: index === nextRider ? 'bold' : 'normal',
-              color: rider.finished ? 'pink' : 'inherit',
-            }}
-          >
-           <p> {index + 1}: {rider.name} </p>
-          </div>
-        ))}
-      </ul>
+      <table className='start-list-table'>
+        <tbody className='start-list-tbody'>
+          {storedNames.map((rider, index) => (
+            <div
+
+              key={index}
+              style={{
+                fontWeight: index === nextRider ? 'bold' : 'normal',
+                color: rider.finished ? 'pink' : 'inherit',
+              }}
+            >
+              <tr key={index}>
+                <td>{index + 1}:</td>
+                <td>{rider.name}</td>
+              </tr>
+            </div>
+          ))}
+        </tbody>
+      </table>
+
+
     </div>
   );
 }
