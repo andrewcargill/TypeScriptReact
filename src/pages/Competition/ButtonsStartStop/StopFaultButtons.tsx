@@ -4,7 +4,7 @@ import { useAppContext } from '../../../AppState';
 function StopFaultButtons() {
   const { storedNames, updateStoredNames, nextRider, updateNextRider, timerValue, activeTimer, updateTimerReset } = useAppContext();
   const { isActive, toggleTimer } = useAppContext();
-  const [buttonLabel, setButtonLabel] = useState("Stop");
+  const [buttonLabel, setButtonLabel] = useState("Start");
 
 
   const findNextRider = () => {
@@ -51,7 +51,7 @@ function StopFaultButtons() {
 
               <button onClick={() => {
                 toggleTimer();
-                setButtonLabel((prevLabel) => (prevLabel === "Stop" ? "Start" : 'Stop'));
+                setButtonLabel((prevLabel) => (prevLabel === "Start" ? "Stop" : 'Start'));
               }}>
                 {isActive ? buttonLabel : "Start Timer"}
               </button>

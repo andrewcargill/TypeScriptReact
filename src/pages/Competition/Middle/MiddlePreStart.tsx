@@ -3,13 +3,26 @@ import { useAppContext } from '../../../AppState'; // Import the context hook
 import ActiveRound from './ActiveCompetition/ActiveRound';
 
 function MiddlePreStart() {
-  const { storedNames, updateStoredNames, nextRider } = useAppContext();
+  const { storedNames, updateStoredNames, nextRider, updateNextRider } = useAppContext();
   const { isActive, toggleActive, toggleTimer } = useAppContext();
 
   const handleToggleActiveAndToggleTimer = () => {
     toggleActive();
-    toggleTimer();
   }
+
+
+interface Rider {
+  name: string;
+  time: number;
+  finished: boolean;
+}
+
+const ResetRiderData = () => {
+  // Create a new array with rider names only
+  const riderNames = storedNames.map((rider) => ({ name: rider.name, time: 0, finished: false }));
+  updateNextRider(0);
+  updateStoredNames(riderNames); // Update storedNames with the new array
+};
 
   return (
     <div>
@@ -30,7 +43,10 @@ function MiddlePreStart() {
           }</div>
 
         <button onClick={handleToggleActiveAndToggleTimer}>
-          {isActive ? 'End Comp' : 'Start Timer'}
+          {isActive ? 'End Competition' : 'Start Competition'}
+        </button>
+        <button onClick={ResetRiderData}>
+          Rest Competition
         </button>
       </div>
     </div>

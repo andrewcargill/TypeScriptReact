@@ -2,11 +2,35 @@ import React, { useEffect, useState } from 'react';
 import { useAppContext } from '../../../../AppState';
 
 function Timer() {
-  const { activeTimer, updateTimerValue, timerReset, updateTimerReset } = useAppContext();
+  const { activeTimer, updateTimerValue, timerReset, updateTimerReset, timerValue, nextRider, storedNames, updateNextRider, updateStoredNames  } = useAppContext();
 
   const [isRunning, setIsRunning] = useState(false);
   const [elapsedTime, setElapsedTime] = useState(0);
   const [intervalId, setIntervalId] = useState<number | null>(null);
+
+  const findNextRider = () => {
+    // Find the index of the next rider
+    return storedNames.findIndex((rider) => rider.finished === false);
+  };
+
+  const handleFinishedClick = () => {
+
+    if (nextRider >= 0 && nextRider < storedNames.length) {
+      while (timerValue === null) {
+        setTimeout(() => {
+        }, 100); 
+      }
+      const updatedNames = [...storedNames];
+      updatedNames[nextRider].finished = true;
+      updatedNames[nextRider].time = timerValue;
+
+      const nextUnfinishedRider = findNextRider();
+      updateNextRider(nextUnfinishedRider);
+      updateStoredNames(updatedNames);
+      resetTimer();
+    }
+  };
+
 
   const startTimer = () => {
     if (!isRunning) {
@@ -76,10 +100,13 @@ function Timer() {
     <div>
       {/* <div><p>(timer)</p></div> */}
       <div id="timer">{formatTime(elapsedTime)}</div>
-      {/* <button onClick={isRunning ? stopTimer : startTimer}>
+      <button onClick={isRunning ? stopTimer : startTimer}>
         {isRunning ? 'Stop' : 'Start'}
-      </button> */}
+      </button>
       <button onClick={resetTimer}>Reset</button>
+      <button onClick={handleFinishedClick} disabled={activeTimer}>
+                SUBMIT
+              </button>
     </div>
   );
 }

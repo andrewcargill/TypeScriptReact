@@ -12,7 +12,7 @@ function TopMainContainer() {
     <div>
 
       {/* <p>Top Main Container</p> */}
-      {ridersReady ? ( <TopWelcome /> ) : ( <TimerActiveContainer /> )}
+      {isActive ? ( <TimerActiveContainer />  ) : ( <TopWelcome /> )}
 
     </div>
   );

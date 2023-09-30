@@ -22,7 +22,7 @@ function Competition() {
         <Container style={containerStyle}>
             <Typography m={2} className='top-box' variant="h4"><TopMainContainer /></Typography>
             <Typography m={2} variant="h4">
-               <StopFaultButtons />
+               {/* <StopFaultButtons /> */}
                 </Typography>
             <Typography m={2} className='middle-box' variant="h4">
                 <MiddleMainContainer />
