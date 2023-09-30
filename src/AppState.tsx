@@ -15,12 +15,14 @@ interface AppState {
   toggleActive: () => void;
   toggleTimer: () => void;
   handleRidersReady: () => void;
+  handleActiveRound: () => void;
   storedNames: Rider[]; 
   updateStoredNames: (names: Rider[]) => void;
   nextRider: number;
   timerValue: number;
   updateNextRider: (index: number) => void;
   updateTimerValue: (time: number) => void;
+  activeRound: boolean;
 
 }
 
@@ -43,6 +45,7 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
   const [storedNames, setStoredNames] = useState<Rider[]>([]);
   const [ridersReady, setRidersReady] = useState<boolean>(true);
   const [activeTimer, setActiveTimer] = useState<boolean>(false);
+  const [activeRound, setActiveRound] = useState<boolean>(false);
   const [nextRider, setNextRider] = useState<number>(0);
   const [timerValue, setTimerValue] = useState<number>(0);
   console.log('state of isActive:' + isActive)
@@ -50,15 +53,17 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
   console.log(storedNames);
   console.log('nextRider: ' + String(nextRider));
   console.log('timerValue: ' + String(timerValue));
+  console.log('activeRound: ' + activeRound);
 
   const updateNextRider = (index: number) => {
     setNextRider(index);
   };
-
   const updateTimerValue= (time: number) => {
     setTimerValue(time);
   };
-
+  const handleActiveRound = () => {
+    setActiveRound(!activeRound);
+  };
   const handleRidersReady = () => {
     setRidersReady(!ridersReady);
     console.log('riders ready: ' + ridersReady);
@@ -88,6 +93,8 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
     updateNextRider,
     timerValue,
     updateTimerValue,
+    handleActiveRound,
+    activeRound,
   };
 
   return <AppContext.Provider value={state}>{children}</AppContext.Provider>;

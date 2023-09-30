@@ -1,44 +1,42 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAppContext } from '../../../AppState';
 
-interface StopFaultButtonsProps {
-  // Define your component's props here
-}
+function StopFaultButtons() {
+  const { storedNames, updateStoredNames, nextRider, updateNextRider, timerValue } = useAppContext();
+  const { isActive, toggleTimer } = useAppContext();
+  const [buttonLabel, setButtonLabel] = useState("Start");
 
-const StopFaultButtons: React.FC<StopFaultButtonsProps> = () => {
-  const {
-    storedNames,
-    updateStoredNames,
-    nextRider,
-    updateNextRider,
-    timerValue,
-    isActive,
-    toggleTimer,
-  } = useAppContext();
 
   const findNextRider = () => {
     // Find the index of the next rider
     return storedNames.findIndex((rider) => rider.finished === false);
   };
 
-  const handleButtonClick = () => {
-    // Ensure timerValue is not null before proceeding
-    if (timerValue !== 0) {
-      toggleTimer();
-      if (nextRider >= 0 && nextRider < storedNames.length) {
-        // Create a copy of the storedNames array
-        const updatedNames = [...storedNames];
-        // Set the 'finished' property to true for the next rider
-        updatedNames[nextRider].finished = true;
-        updatedNames[nextRider].time = timerValue;
+  const handleFinishedClick = () => {
 
-        // Update nextRider to the next unfinished rider, if available
-        const nextUnfinishedRider = findNextRider();
-        updateNextRider(nextUnfinishedRider);
-
-        // Update the storedNames array with the modified riders
-        updateStoredNames(updatedNames);
+    if (nextRider >= 0 && nextRider < storedNames.length) {
+      // Wait for timerValue to become non-null
+      while (timerValue === null) {
+        setTimeout(() => {
+          // You can add a timeout here to avoid an infinite loop
+        }, 100); // Adjust the timeout duration as needed
       }
+
+      // Now timerValue is not null, you can proceed with your logic
+      // Example: update state or trigger a function
+
+      // Create a copy of the storedNames array
+      const updatedNames = [...storedNames];
+      // Set the 'finished' property to true for the next rider
+      updatedNames[nextRider].finished = true;
+      updatedNames[nextRider].time = timerValue;
+
+      // Update nextRider to the next unfinished rider, if available
+      const nextUnfinishedRider = findNextRider();
+      updateNextRider(nextUnfinishedRider);
+
+      // Update the storedNames array with the modified riders
+      updateStoredNames(updatedNames);
     }
   };
 
@@ -51,11 +49,17 @@ const StopFaultButtons: React.FC<StopFaultButtonsProps> = () => {
         <div>
           {isActive ? (
             <div>
-              <button onClick={toggleTimer}>STOP</button>
+
+              <button onClick={() => {
+                toggleTimer();
+                setButtonLabel((prevLabel) => (prevLabel === "Start" ? "Stop" : "Start"));
+              }}>
+                {isActive ? buttonLabel : "Start Timer"}
+              </button>
               <button>FAULT</button>
-              {timerValue !== null && (
-                <button onClick={handleButtonClick}>FINISHED</button>
-              )}
+              <button onClick={handleFinishedClick} disabled={!toggleTimer}>
+  FINISHED
+</button>
             </div>
           ) : (
             <div>
@@ -66,6 +70,6 @@ const StopFaultButtons: React.FC<StopFaultButtonsProps> = () => {
       </div>
     </div>
   );
-};
+}
 
 export default StopFaultButtons;
