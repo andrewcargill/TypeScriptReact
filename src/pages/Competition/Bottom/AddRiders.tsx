@@ -1,5 +1,6 @@
 import React from 'react';
 import { useAppContext } from '../../../AppState';
+import { Button, Input, TextField } from '@mui/material';
 
 interface Rider {
   name: string;
@@ -23,7 +24,7 @@ function NameList() {
   };
 
   const handleAddName = () => {
-    const updatedNames = [...storedNames, { name: '', time:0, finished: false }];
+    const updatedNames = [...storedNames, { name: '', time: 0, finished: false }];
     updateStoredNames(updatedNames);
   };
 
@@ -32,18 +33,21 @@ function NameList() {
       {/* <div>Add Riders</div> */}
       {storedNames.map((rider: Rider, index: number) => (
         <div key={index}>
-          <input
+          <TextField
+            size='small'
             type="text"
             placeholder="Enter a name"
             value={rider.name}
             onChange={(e) => handleNameChange(index, e.target.value)}
           />
           {index > 0 && (
-            <button onClick={() => handleRemoveName(index)}>Remove</button>
+            <Button size='small' variant='contained' onClick={() => handleRemoveName(index)}>Remove</Button>
           )}
         </div>
       ))}
-      <button onClick={handleAddName}>Add Name</button>
+      <div>
+        <Button size='small' variant='contained' onClick={handleAddName}>Add Name</Button>
+      </div>
     </div>
   );
 }

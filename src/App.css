@@ -18,6 +18,7 @@ p {
   border: 1px solid black;
   padding: 4px;
   border-radius: 5px;
+  background-color: white;
 }
 
 .middle-box {
@@ -25,14 +26,15 @@ p {
   width: 100%;
   padding: 4px;
   border-radius: 5px;
+  background-color: white;
 }
 
 .bottom-box {
-
   border: 1px solid black;
   width: 100%;
   padding: 4px;
   border-radius: 5px;
+  background-color: white;
 }
 
 
