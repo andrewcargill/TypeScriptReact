@@ -27,7 +27,7 @@ function Competition() {
             <Typography m={2} className='middle-box' variant="h4">
                 <MiddleMainContainer />
                 </Typography>
-            <Typography className='bottom-box' variant="h4">
+            <Typography mb={5} className='bottom-box' variant="h4">
                 <CompetitorsList />
             </Typography>
         </Container>

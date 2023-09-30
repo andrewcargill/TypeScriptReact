@@ -40,7 +40,7 @@ function CompetitorsList() {
             )}
             <div>
                 {isActive ? (
-                    'competition active'
+                    ''
                 ):(
                     <Button onClick={handleButtonClick}>
                     {ridersReady ? (
