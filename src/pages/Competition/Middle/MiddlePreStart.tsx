@@ -54,13 +54,14 @@ function MiddlePreStart() {
         {/* Active round screen toggled on isActive state */}
         <div>
           {isActive ? <ActiveRound /> :
-            <div>
+          <div className='title-container'>
               <p>
                 Get Ready to ride!
               </p>
-              {/* <p>
-                The first rider will be {nextRider !== -1 ? storedNames[nextRider]?.name : 'None'}
-              </p> */}
+            
+
+              
+             
             </div>
           }</div>
         <div className='end-reset-comp-buttons-container'>
