@@ -32,31 +32,34 @@ function ActiveRound() {
         </div> */}
 
         <div>
-          <p>Results:</p>
-          <table>
-            <thead>
-              <tr>
-                <th><p> Placing</p></th>
-                <th><p> Rider</p></th>
-                <th><p>Time</p></th>
-                <th><p>Diff</p></th> {/* Add a new column for the time difference */}
-              </tr>
-            </thead>
-            <tbody>
-              {finishedRiders.map((rider, index) => (
-                <tr key={index}>
-                  <td><p>{index +1}</p></td>
-                  <td><p>{rider.name}</p></td>
-                  <td><p><strong> {formatTime(rider.time)}</strong></p></td>
-                  <td><p>
-                    {/* Calculate and display the time difference */}
-                    ({index === 0 ? '0' : `+${formatTimeDiff(rider.time - finishedRiders[0].time)}`})
-                    </p>
-                  </td>
+
+          <div className='results-table-container'>
+            <div className='title'> <div>Results </div></div>
+            <table>
+              <thead>
+                <tr>
+                  <th><p> Placing</p></th>
+                  <th><p> Rider</p></th>
+                  <th><p>Time</p></th>
+                  <th><p>Diff</p></th> {/* Add a new column for the time difference */}
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {finishedRiders.map((rider, index) => (
+                  <tr key={index}>
+                    <td><p>{index + 1}</p></td>
+                    <td><p>{rider.name}</p></td>
+                    <td><p><strong> {formatTime(rider.time)}</strong></p></td>
+                    <td><p>
+                      {/* Calculate and display the time difference */}
+                      ({index === 0 ? '0' : `+${formatTimeDiff(rider.time - finishedRiders[0].time)}`})
+                    </p>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>

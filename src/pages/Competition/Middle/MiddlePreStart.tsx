@@ -1,6 +1,7 @@
 import React from 'react';
 import { useAppContext } from '../../../AppState'; // Import the context hook
 import ActiveRound from './ActiveCompetition/ActiveRound';
+import { Button } from '@mui/material';
 
 function MiddlePreStart() {
   const { storedNames, updateStoredNames, nextRider, updateNextRider } = useAppContext();
@@ -11,18 +12,18 @@ function MiddlePreStart() {
   }
 
 
-interface Rider {
-  name: string;
-  time: number;
-  finished: boolean;
-}
+  interface Rider {
+    name: string;
+    time: number;
+    finished: boolean;
+  }
 
-const ResetRiderData = () => {
-  // Create a new array with rider names only
-  const riderNames = storedNames.map((rider) => ({ name: rider.name, time: 0, finished: false }));
-  updateNextRider(0);
-  updateStoredNames(riderNames); // Update storedNames with the new array
-};
+  const ResetRiderData = () => {
+    // Create a new array with rider names only
+    const riderNames = storedNames.map((rider) => ({ name: rider.name, time: 0, finished: false }));
+    updateNextRider(0);
+    updateStoredNames(riderNames); // Update storedNames with the new array
+  };
 
   return (
     <div>
@@ -41,13 +42,14 @@ const ResetRiderData = () => {
               </p> */}
             </div>
           }</div>
-
-        <button onClick={handleToggleActiveAndToggleTimer}>
-          {isActive ? 'End Competition' : 'Start Competition'}
-        </button>
-        <button onClick={ResetRiderData}>
-          Rest Competition
-        </button>
+        <div className='end-reset-comp-buttons-container'>
+          <Button variant='outlined' size='small' onClick={handleToggleActiveAndToggleTimer}>
+            {isActive ? 'End Competition' : 'Start Competition'}
+          </Button>
+          <Button variant='outlined' size='small' onClick={ResetRiderData}>
+            Rest Competition
+          </Button>
+        </div>
       </div>
     </div>
   );

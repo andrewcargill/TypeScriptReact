@@ -1,3 +1,5 @@
+
+
 p {
   font-size: 14px;
 }
@@ -32,6 +34,9 @@ p {
   padding: 4px;
   border-radius: 5px;
 }
+
+
+/* TIMER DISPLAY */
 .timer-container {
   display: flex;
   flex-wrap: wrap;
@@ -43,10 +48,6 @@ p {
 }
 
 #timer {
-  
-  /* font-family: 'Squada One', cursive; */
-  
-   
     font-size: 4rem;
     border-radius: 4px;
 }
@@ -64,6 +65,51 @@ p {
   align-items: center;
   align-content: center;
   flex-direction: column;
+}
+
+/* MIDDLE SECTION */
+.end-reset-comp-buttons-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 5px;
+}
+
+.title {
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.results-table-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+}
+
+/* RESULTS TABLE */
+
+table {
+  border: 1px solid black;
+  width: 90%;
+  border-radius: 4px;
+  padding: 5px;
+  margin: 5px;
+}
+
+thead {
+  background-color: #61dafb;
+}
+
+tbody {
+  background-color: aliceblue;
+}
+
+td {
+  text-align: center; /* Center the text horizontally */
+  vertical-align: middle; /* Center the text vertically */
 }
 
 @media (prefers-reduced-motion: no-preference) {
