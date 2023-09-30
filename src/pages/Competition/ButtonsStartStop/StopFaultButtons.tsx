@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useAppContext } from '../../../AppState';
 
 function StopFaultButtons() {
-  const { storedNames, updateStoredNames, nextRider, updateNextRider, timerValue, activeTimer } = useAppContext();
+  const { storedNames, updateStoredNames, nextRider, updateNextRider, timerValue, activeTimer, updateTimerReset } = useAppContext();
   const { isActive, toggleTimer } = useAppContext();
-  const [buttonLabel, setButtonLabel] = useState("Start");
+  const [buttonLabel, setButtonLabel] = useState("Stop");
 
 
   const findNextRider = () => {
@@ -29,6 +29,10 @@ function StopFaultButtons() {
     }
   };
 
+  const handleResetTimer = () => {
+    updateTimerReset(true);
+  }
+
   useEffect(() => {
     console.log('activeTimer!!!: ' + activeTimer)
     // This effect will run whenever toggleTimer changes
@@ -47,7 +51,7 @@ function StopFaultButtons() {
 
               <button onClick={() => {
                 toggleTimer();
-                setButtonLabel((prevLabel) => (prevLabel === "Start" ? "Stop" : "Start"));
+                setButtonLabel((prevLabel) => (prevLabel === "Stop" ? "Start" : 'Stop'));
               }}>
                 {isActive ? buttonLabel : "Start Timer"}
               </button>
@@ -55,6 +59,9 @@ function StopFaultButtons() {
 
               <button onClick={handleFinishedClick} disabled={activeTimer}>
                 SUBMIT
+              </button>
+              <button onClick={handleResetTimer} disabled={true}>
+                RESET
               </button>
               {/* {!toggleTimer && (
             <button

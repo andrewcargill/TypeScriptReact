@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useAppContext } from '../../../../AppState';
 
 function Timer() {
-  const { activeTimer, updateTimerValue, timerReset, updateTimerReset } = useAppContext();
+  const { activeTimer, updateTimerValue } = useAppContext();
 
   const [isRunning, setIsRunning] = useState(false);
   const [elapsedTime, setElapsedTime] = useState(0);
@@ -51,19 +51,12 @@ function Timer() {
   }, [activeTimer]);
 
   useEffect(() => {
-    console.log('TIMER USEEFFECT!! HIT !!! ')
     return () => {
       if (intervalId !== null) {
         clearInterval(intervalId);
       }
-      if (timerReset === true) {
-        console.log('timerReset is being hit!')
-        // Reset the timer
-        resetTimer();
-        updateTimerReset(false); // Reset the flag
-      }
     };
-  }, [intervalId, timerReset]);
+  }, [intervalId]);
 
   const formatTime = (time: number): string => {
     const minutes: number = Math.floor(time / 60000);
@@ -78,8 +71,8 @@ function Timer() {
       <div id="timer">{formatTime(elapsedTime)}</div>
       {/* <button onClick={isRunning ? stopTimer : startTimer}>
         {isRunning ? 'Stop' : 'Start'}
-      </button> */}
-      <button onClick={resetTimer}>Reset</button>
+      </button>
+      <button onClick={resetTimer}>Reset</button> */}
     </div>
   );
 }

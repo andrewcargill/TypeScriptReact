@@ -17,6 +17,13 @@ function ActiveRound() {
     return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}:${centiseconds.toString().padStart(2, '0')}`;
   };
 
+  const formatTimeDiff = (time: number): string => {
+    const minutes: number = Math.floor(time / 60000);
+    const seconds: number = Math.floor((time % 60000) / 1000);
+    const centiseconds: number = Math.floor((time % 60000) / 10) % 100;
+    return `${seconds.toString().padStart(2, '0')}:${centiseconds.toString().padStart(2, '0')}`;
+  };
+
   return (
     <div>
       <div>
@@ -29,15 +36,23 @@ function ActiveRound() {
           <table>
             <thead>
               <tr>
-                <th>Rider Name</th>
-                <th>Time</th>
+                <th><p> Placing</p></th>
+                <th><p> Rider</p></th>
+                <th><p>Time</p></th>
+                <th><p>Diff</p></th> {/* Add a new column for the time difference */}
               </tr>
             </thead>
             <tbody>
               {finishedRiders.map((rider, index) => (
                 <tr key={index}>
-                  <td>{rider.name}</td>
-                  <td>{formatTime(rider.time)}</td>
+                  <td><p>{index +1}</p></td>
+                  <td><p>{rider.name}</p></td>
+                  <td><p><strong> {formatTime(rider.time)}</strong></p></td>
+                  <td><p>
+                    {/* Calculate and display the time difference */}
+                    ({index === 0 ? '0' : `+${formatTimeDiff(rider.time - finishedRiders[0].time)}`})
+                    </p>
+                  </td>
                 </tr>
               ))}
             </tbody>
