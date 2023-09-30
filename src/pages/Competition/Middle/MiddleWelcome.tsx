@@ -8,7 +8,7 @@ function MiddleWelcome() {
   return (
     <div>
       <div>
-        <p>Welcome. Add the riders!</p> 
+        <p>Welcome. Please add the riders below!</p> 
       </div>
     </div>
   );

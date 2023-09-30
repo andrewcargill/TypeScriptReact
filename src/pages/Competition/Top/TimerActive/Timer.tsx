@@ -74,7 +74,7 @@ function Timer() {
 
   return (
     <div>
-      <div><p>(timer)</p></div>
+      {/* <div><p>(timer)</p></div> */}
       <div id="timer">{formatTime(elapsedTime)}</div>
       {/* <button onClick={isRunning ? stopTimer : startTimer}>
         {isRunning ? 'Stop' : 'Start'}

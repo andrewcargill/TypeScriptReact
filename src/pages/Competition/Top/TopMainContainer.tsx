@@ -11,7 +11,7 @@ function TopMainContainer() {
   return (
     <div>
 
-      <p>Top Main Container</p>
+      {/* <p>Top Main Container</p> */}
       {ridersReady ? ( <TopWelcome /> ) : ( <TimerActiveContainer /> )}
 
     </div>

@@ -43,7 +43,7 @@ function StopFaultButtons() {
     <div>
       <div>
         <div>
-          <p>(StopFaultButtons)</p>
+          {/* <p>(StopFaultButtons)</p> */}
         </div>
         <div>
           {isActive ? (
@@ -75,7 +75,7 @@ function StopFaultButtons() {
             </div>
           ) : (
             <div>
-              <p>(empty)</p>
+              {/* <p>(empty)</p> */}
             </div>
           )}
         </div>

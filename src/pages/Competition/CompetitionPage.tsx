@@ -20,11 +20,11 @@ function Competition() {
 
     return (
         <Container style={containerStyle}>
-            <Typography className='top-box' variant="h4"><TopMainContainer /></Typography>
-            <Typography className='middle-box' variant="h4">
+            <Typography m={2} className='top-box' variant="h4"><TopMainContainer /></Typography>
+            <Typography m={2} variant="h4">
                <StopFaultButtons />
                 </Typography>
-            <Typography className='middle-box' variant="h4">
+            <Typography m={2} className='middle-box' variant="h4">
                 <MiddleMainContainer />
                 </Typography>
             <Typography className='bottom-box' variant="h4">

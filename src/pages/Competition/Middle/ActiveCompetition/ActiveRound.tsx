@@ -27,9 +27,9 @@ function ActiveRound() {
   return (
     <div>
       <div>
-        <div>
+        {/* <div>
           <p>(activeRound)</p>
-        </div>
+        </div> */}
 
         <div>
           <p>Results:</p>

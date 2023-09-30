@@ -12,18 +12,23 @@ p {
 }
 
 .top-box {
-  background-color: red;
   width: 100%;
+  border: 1px solid black;
+  padding: 4px;
+  ;
 }
 
 .middle-box {
-  background-color: green;
+  border: 1px solid black;
   width: 100%;
+  padding: 4px;
 }
 
 .bottom-box {
-  background-color: lightcoral;
+
+  border: 1px solid black;
   width: 100%;
+  padding: 4px;
 }
 
 @media (prefers-reduced-motion: no-preference) {

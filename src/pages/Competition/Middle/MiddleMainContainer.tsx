@@ -12,7 +12,7 @@ function MiddleMainContainer() {
   return (
     <div>
       <div>
-        <p>Main Container</p> 
+        {/* <p>Main Container</p>  */}
 
         {ridersReady ? <MiddleWelcome /> : <MiddlePreStart />}
         

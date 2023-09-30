@@ -29,7 +29,7 @@ function NameList() {
 
   return (
     <div>
-      <div>Add Riders</div>
+      {/* <div>Add Riders</div> */}
       {storedNames.map((rider: Rider, index: number) => (
         <div key={index}>
           <input

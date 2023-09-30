@@ -32,7 +32,7 @@ function CompetitorsList() {
 
     return (
         <div>
-            <h5>Competitors Component</h5>
+            {/* <h5>Competitors Component</h5> */}
             {ridersReady ? (
                 <AddRiders />
             ) : (

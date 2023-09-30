@@ -14,7 +14,7 @@ function MiddlePreStart() {
   return (
     <div>
       <div>
-        <div><p>(MiddlePreStart)</p></div>
+        {/* <div><p>(MiddlePreStart)</p></div> */}
 
         {/* Active round screen toggled on isActive state */}
         <div>
@@ -23,9 +23,9 @@ function MiddlePreStart() {
               <p>
                 Get Ready to ride!
               </p>
-              <p>
-                The first rider will be: {nextRider !== -1 ? storedNames[nextRider]?.name : 'None'}
-              </p>
+              {/* <p>
+                The first rider will be {nextRider !== -1 ? storedNames[nextRider]?.name : 'None'}
+              </p> */}
             </div>
           }</div>
 

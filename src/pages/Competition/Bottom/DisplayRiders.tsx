@@ -18,7 +18,7 @@ function DisplayRiders() {
               color: rider.finished ? 'pink' : 'inherit',
             }}
           >
-            {index + 1}: {rider.name}
+           <p> {index + 1}: {rider.name} </p>
           </div>
         ))}
       </ul>

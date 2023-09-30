@@ -8,7 +8,8 @@ function TopWelcome() {
   return (
     <div>
       <div>
-        <p>Top Welcome Screeen</p> 
+        <h5>SHOW JUMPING TIMER </h5> 
+     
       </div>
     </div>
   );
