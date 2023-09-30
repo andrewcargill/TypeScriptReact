@@ -6,7 +6,7 @@ function MiddleWelcome() {
 
 
   return (
-    <div>
+    <div className='title-container'>
       <div>
         <p>Welcome. Please add the riders below!</p> 
       </div>

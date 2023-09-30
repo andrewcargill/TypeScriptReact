@@ -29,7 +29,8 @@ function NameList() {
   };
 
   return (
-    <div>
+    <div className='add-riders-container'>
+      <div>
       {/* <div>Add Riders</div> */}
       {storedNames.map((rider: Rider, index: number) => (
         <div key={index}>
@@ -41,12 +42,13 @@ function NameList() {
             onChange={(e) => handleNameChange(index, e.target.value)}
           />
           {index > 0 && (
-            <Button size='small' variant='contained' onClick={() => handleRemoveName(index)}>Remove</Button>
+            <Button size='small' variant='contained' onClick={() => handleRemoveName(index)}>x</Button>
           )}
         </div>
       ))}
       <div>
         <Button size='small' variant='contained' onClick={handleAddName}>Add Name</Button>
+      </div>
       </div>
     </div>
   );

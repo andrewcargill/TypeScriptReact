@@ -37,6 +37,20 @@ p {
   background-color: white;
 }
 
+/* TOP CONTIANER */
+
+.title-container {
+  width: 100%;
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+}
+
+.showjumping-title {
+  font-family: 'Lilita One', cursive;
+
+}
+
 
 /* TIMER DISPLAY */
 .timer-container {
@@ -115,6 +129,14 @@ td {
 }
 
 /* Bottom Container */
+
+.add-riders-container {
+  padding: 10px;
+  display: flex; 
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
 .start-list-container {
 
   width: 100%;
@@ -125,13 +147,17 @@ td {
   align-content: center;
 }
 
+/* Start list Table */
+
 .start-list-table {
-  background-color: red;
-  width: 50%;
+
+  width: fit-content;
+  font-size: 25px;
+  border: 0;
 }
 
 .start-list-tbody {
-  background-color: green;
+  background-color: white;
 }
 
 
