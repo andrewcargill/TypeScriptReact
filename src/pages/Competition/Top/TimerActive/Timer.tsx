@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useAppContext } from '../../../../AppState';
+import { Button } from '@mui/material';
 
 function Timer() {
-  const { activeTimer, updateTimerValue, timerReset, updateTimerReset, timerValue, nextRider, storedNames, updateNextRider, updateStoredNames  } = useAppContext();
+  const { activeTimer, updateTimerValue, timerReset, updateTimerReset, timerValue, nextRider, storedNames, updateNextRider, updateStoredNames } = useAppContext();
 
   const [isRunning, setIsRunning] = useState(false);
   const [elapsedTime, setElapsedTime] = useState(0);
@@ -18,7 +19,7 @@ function Timer() {
     if (nextRider >= 0 && nextRider < storedNames.length) {
       while (timerValue === null) {
         setTimeout(() => {
-        }, 100); 
+        }, 100);
       }
       const updatedNames = [...storedNames];
       updatedNames[nextRider].finished = true;
@@ -97,16 +98,24 @@ function Timer() {
   };
 
   return (
-    <div>
+    <div className='timer-display'>
+      <div>
+        <p>Next Rider: <strong> {storedNames[nextRider]?.name} </strong></p>
+        {/* You can display other information about the rider here */}
+      </div>
       {/* <div><p>(timer)</p></div> */}
-      <div id="timer">{formatTime(elapsedTime)}</div>
-      <button onClick={isRunning ? stopTimer : startTimer}>
-        {isRunning ? 'Stop' : 'Start'}
-      </button>
-      <button onClick={resetTimer}>Reset</button>
-      <button onClick={handleFinishedClick} disabled={activeTimer}>
-                SUBMIT
-              </button>
+      <div className='timer-container'>
+        <div id="timer"> {formatTime(elapsedTime)}</div>
+      </div>
+      <div className='timer-buttons-container'>
+        <Button size='small' variant='contained' onClick={isRunning ? stopTimer : startTimer}>
+          {isRunning ? 'Stop' : 'Start'}
+        </Button>
+        <Button size='small' variant='contained'onClick={resetTimer}>Reset</Button>
+        <Button size='small' variant='contained' onClick={handleFinishedClick} disabled={activeTimer}>
+          SUBMIT
+        </Button>
+      </div>
     </div>
   );
 }

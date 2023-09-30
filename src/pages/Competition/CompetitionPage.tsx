@@ -20,14 +20,14 @@ function Competition() {
 
     return (
         <Container style={containerStyle}>
-            <Typography m={2} className='top-box' variant="h4"><TopMainContainer /></Typography>
-            <Typography m={2} variant="h4">
-               {/* <StopFaultButtons /> */}
-                </Typography>
-            <Typography m={2} className='middle-box' variant="h4">
+            <Typography m={1} className='top-box' variant="h4"><TopMainContainer /></Typography>
+            {/* <Typography m={2} variant="h4">
+               <StopFaultButtons />
+                </Typography> */}
+            <Typography m={1} className='middle-box' variant="h4">
                 <MiddleMainContainer />
                 </Typography>
-            <Typography mb={5} className='bottom-box' variant="h4">
+            <Typography m={1} className='bottom-box' variant="h4">
                 <CompetitorsList />
             </Typography>
         </Container>
