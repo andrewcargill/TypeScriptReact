@@ -14,11 +14,11 @@ function App() {
     <ThemeProvider theme={theme}>
     <Router basename={`/${process.env.PUBLIC_URL}`}>
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/homepage" element={<HomePage />} />
         <Route path="/timer" element={<TimerFunction />} />
         <Route path="/addriders" element={<AddRiders />} />
         <Route path="/displayriders" element={<DisplayRiders />} />
-        <Route path="/competition" element={<Competition />} />
+        <Route path="/" element={<Competition />} />
       </Routes>
     </Router>
     </ThemeProvider>
