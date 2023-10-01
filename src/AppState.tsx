@@ -17,7 +17,9 @@ interface AppState {
   handleRidersReady: () => void;
   handleActiveRound: () => void;
   storedNames: Rider[]; 
+  rankedRiders: Rider[];
   updateStoredNames: (names: Rider[]) => void;
+  updateRankedRiders: (names: Rider[]) => void;
   nextRider: number;
   timerValue: number;
   updateNextRider: (index: number) => void;
@@ -46,19 +48,16 @@ interface AppProviderProps {
 export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
   const [isActive, setIsActive] = useState<boolean>(false);
   const [storedNames, setStoredNames] = useState<Rider[]>([]);
+  const [rankedRiders, setRankedRiders] = useState<Rider[]>([]);
   const [ridersReady, setRidersReady] = useState<boolean>(true);
   const [activeTimer, setActiveTimer] = useState<boolean>(false);
   const [activeRound, setActiveRound] = useState<boolean>(false);
   const [timerReset, setTimerReset] = useState<boolean>(false);
   const [nextRider, setNextRider] = useState<number>(0);
   const [timerValue, setTimerValue] = useState<number>(0);
-  console.log('state of isActive:' + isActive)
-  console.log('activeTimer: ' + activeTimer);
-  console.log(storedNames);
-  console.log('nextRider: ' + String(nextRider));
-  console.log('timerValue: ' + String(timerValue));
-  console.log('activeRound: ' + activeRound);
-  console.log('timerReset: ' + timerReset)
+
+  console.log(rankedRiders);
+ 
 
   const updateNextRider = (index: number) => {
     setNextRider(index);
@@ -71,7 +70,6 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
   };
   const handleRidersReady = () => {
     setRidersReady(!ridersReady);
-    console.log('riders ready: ' + ridersReady);
   };
   const toggleTimer = () => {
     setActiveTimer((prevActive) => !prevActive);
@@ -81,6 +79,9 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
   };
   const updateStoredNames = (names: Rider[]) => {
     setStoredNames(names);
+  };
+  const updateRankedRiders = (names: Rider[]) => {
+    setRankedRiders(names);
   };
   const updateTimerReset = (value: boolean) => {
     setTimerReset(value);
@@ -103,6 +104,8 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
     activeRound,
     timerReset,
     updateTimerReset,
+    updateRankedRiders,
+    rankedRiders,
 
   };
 

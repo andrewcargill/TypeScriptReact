@@ -1,32 +1,19 @@
 import React from 'react';
 import { useAppContext } from '../../../../AppState';
 import Timer from './Timer';
+import Winner from './Winner';
 
 function TimerActiveContainer() {
   const { storedNames, updateStoredNames, nextRider } = useAppContext();
   const { isActive, toggleActive } = useAppContext();
 
-  // const getNextRider = (): number => {
-  //   return storedNames.findIndex((rider) => rider.next);
-  // };
-
-  // const nextRiderIndex = getNextRider();
-
   return (
     <div>
-      <div>
-        <div>
-          {/* Display the next rider if it exists */}
-         
-           
-   
-
-          {/* Your component logic here... */}
-        </div>
-        {/* <div><p>(TimerActiveContainer)</p></div> */}
-
+        {nextRider === -1 ? (
+        <Winner />
+      ) : (
         <Timer />
-      </div>
+      )}
     </div>
   );
 }

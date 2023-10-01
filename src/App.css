@@ -94,6 +94,23 @@ p {
   flex-direction: column;
 }
 
+/* WINNER COMPONENT */
+.winners-container {
+  border: 1px solid black;
+}
+.winner-ranked-container {
+  border: 1px solid black;
+}
+.third-place-container{
+  border: 1px solid black;
+}
+.second-place-container{
+  border: 1px solid black;
+}
+.first-place-container{
+  border: 1px solid black;
+}
+
 /* MIDDLE SECTION */
 .end-reset-comp-buttons-container {
   display: flex;

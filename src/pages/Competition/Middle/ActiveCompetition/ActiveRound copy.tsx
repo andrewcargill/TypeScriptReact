@@ -2,8 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { useAppContext } from '../../../../AppState';
 
 function ActiveRound() {
-  
   const { storedNames, updateRankedRiders, rankedRiders } = useAppContext();
+
+  // Filter the riders with finished = true
+  const finishedRiders = storedNames.filter((rider) => rider.finished);
+
+  // Sort the finished riders by their times in ascending order
+  finishedRiders.sort((a, b) => a.time - b.time);
+
 
   const formatTime = (time: number): string => {
     const minutes: number = Math.floor(time / 60000);
@@ -13,17 +19,18 @@ function ActiveRound() {
   };
 
   const formatTimeDiff = (time: number): string => {
+    const minutes: number = Math.floor(time / 60000);
     const seconds: number = Math.floor((time % 60000) / 1000);
     const centiseconds: number = Math.floor((time % 60000) / 10) % 100;
     return `${seconds.toString().padStart(2, '0')}:${centiseconds.toString().padStart(2, '0')}`;
   };
 
   useEffect(() => {
-    const finishedRiders = storedNames.filter((rider) => rider.finished); 
-    finishedRiders.sort((a, b) => a.time - b.time);
-    updateRankedRiders([...finishedRiders]);
-  }, [storedNames]);
-
+    if (finishedRiders.length > 0) {
+      updateRankedRiders([...finishedRiders]);
+    }
+    return undefined; 
+  }, [finishedRiders]);
 
   return (
     <div>
@@ -42,14 +49,14 @@ function ActiveRound() {
                 </tr>
               </thead>
               <tbody>
-                {rankedRiders.map((rider, index) => (
+                {finishedRiders.map((rider, index) => (
                   <tr key={index}>
                     <td><p>{index + 1}</p></td>
                     <td><p>{rider.name}</p></td>
                     <td><p><strong> {formatTime(rider.time)}</strong></p></td>
                     <td><p>
                       {/* Calculate and display the time difference */}
-                      ({index === 0 ? '0' : `+${formatTimeDiff(rider.time - rankedRiders[0].time)}`})
+                      ({index === 0 ? '0' : `+${formatTimeDiff(rider.time - finishedRiders[0].time)}`})
                     </p>
                     </td>
                   </tr>
