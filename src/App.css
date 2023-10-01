@@ -97,19 +97,51 @@ p {
 /* WINNER COMPONENT */
 .winners-container {
   border: 1px solid black;
+  
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-size: 20px;
+  align-items: flex-end;
+  padding: 10px;
+
 }
-.winner-ranked-container {
-  border: 1px solid black;
-}
+
 .third-place-container{
-  border: 1px solid black;
+  height: 75px;
+  background-color: green;
+  color: white;
 }
 .second-place-container{
-  border: 1px solid black;
+  height: 100px;
+  background-color: green;
+  color: white;
 }
 .first-place-container{
-  border: 1px solid black;
+  height: 130px;
+  background-color: gold;
 }
+
+.winner-ranked-container {
+  font-family: 'Lilita One', cursive;
+  padding: 4px;
+  border: 1px solid black;
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: end;
+  border-radius: 5px;
+}
+
+.winner-ranking-number {
+  font-weight: 400;
+}
+
+/* .winner-icon {
+  font-size: 50px;
+} */
 
 /* MIDDLE SECTION */
 .end-reset-comp-buttons-container {

@@ -1,23 +1,28 @@
 import React from 'react';
 import { useAppContext } from '../../../../AppState';
 import Timer from './Timer';
+import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
+import StarOutlineIcon from '@mui/icons-material/StarOutline';
 
 function Winner() {
   const { rankedRiders } = useAppContext();
 
   return (
     <div className='winners-container'>
-      <div className='third-place-container winner-ranked-contianer'>
-        <div>3rd Place</div>
+      <div className='third-place-container winner-ranked-container'>
+        <div className='winner-ranking-number'>3</div>
         <div>{rankedRiders[2].name}</div>
+        <div className='winner-icon'><StarOutlineIcon sx={{ fontSize: 20 }}/></div>
       </div>
-      <div className='first-place-container winner-ranked-contianer'>
-        <div>WINNER</div>
+      <div className='first-place-container winner-ranked-container'>
+        <div className='winner-ranking-number'>WINNER</div>
         <div>{rankedRiders[0].name}</div>
+        <div className='winner-icon'><EmojiEventsIcon sx={{ fontSize: 40 }}/></div>
       </div>
-      <div className='second-place-conainer winner-ranked-contianer'>
-        <div>2nd Place</div>
+      <div className='second-place-container winner-ranked-container'>
+        <div className='winner-ranking-number'>2</div>
         <div>{rankedRiders[1].name}</div>
+        <div className='winner-icon'><StarOutlineIcon sx={{ fontSize: 20 }}/></div>
       </div>
     </div>
   )
