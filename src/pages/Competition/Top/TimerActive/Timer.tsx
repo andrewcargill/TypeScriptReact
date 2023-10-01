@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useAppContext } from '../../../../AppState';
 import { Button } from '@mui/material';
+import BackupIcon from '@mui/icons-material/Backup';
+import TimerIcon from '@mui/icons-material/Timer';
+import RestartAltIcon from '@mui/icons-material/RestartAlt';
+import DisabledByDefaultIcon from '@mui/icons-material/DisabledByDefault';
 
 function Timer() {
   const { activeTimer, updateTimerValue, timerReset, updateTimerReset, timerValue, nextRider, storedNames, updateNextRider, updateStoredNames } = useAppContext();
@@ -99,23 +103,31 @@ function Timer() {
 
   return (
     <div className='timer-display'>
-      <div>
-        <p>Next Rider: <strong> {storedNames[nextRider]?.name} </strong></p>
+      <div className='next-rider-timer'>
+        Rider: {storedNames[nextRider]?.name}
         {/* You can display other information about the rider here */}
       </div>
       {/* <div><p>(timer)</p></div> */}
       <div className='timer-container'>
         <div id="timer"> {formatTime(elapsedTime)}</div>
+        <div className='faults-display'>Faults: 4</div>
       </div>
       <div className='timer-buttons-container'>
-        <Button size='small' variant='contained' onClick={isRunning ? stopTimer : startTimer}>
+        <Button id='start-button' size='small' variant='contained'  onClick={isRunning ? stopTimer : startTimer}>
           {isRunning ? 'Stop' : 'Start'}
         </Button>
-        <Button size='small' variant='contained'onClick={resetTimer}>Reset</Button>
-        <Button size='small' variant='contained' onClick={handleFinishedClick} disabled={activeTimer}>
+       
+      </div>
+      <div className='timer-buttons-container'>
+    
+      <Button size='small' variant='outlined' startIcon={<RestartAltIcon />} onClick={resetTimer}>RESET</Button>
+        <Button size='small' variant='contained' color='error' startIcon={<DisabledByDefaultIcon />} onClick={resetTimer}>Fault</Button>
+       
+        <Button size='small' variant='outlined' startIcon={<BackupIcon />} color='success' onClick={handleFinishedClick} disabled={activeTimer}>
           SUBMIT
         </Button>
-      </div>
+
+    </div>
     </div>
   );
 }

@@ -94,6 +94,25 @@ p {
   flex-direction: column;
 }
 
+.faults-display {
+  font-size: 14px;
+  color: black;
+  padding: 2px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.next-rider-timer {
+  font-family: 'Lilita One', cursive;
+  text-transform: uppercase;
+  font-size: 30px;
+  color: green;
+}
+
+#start-button {
+  width: 100%;
+}
+
 /* WINNER COMPONENT */
 .winners-container {
   border: 1px solid black;
@@ -133,15 +152,13 @@ p {
   align-items: center; 
   justify-content: end;
   border-radius: 5px;
+  text-transform: capitalize;
 }
 
 .winner-ranking-number {
   font-weight: 400;
 }
 
-/* .winner-icon {
-  font-size: 50px;
-} */
 
 /* MIDDLE SECTION */
 .end-reset-comp-buttons-container {
@@ -186,6 +203,7 @@ tbody {
 td {
   text-align: center; /* Center the text horizontally */
   vertical-align: middle; /* Center the text vertically */
+  text-transform: capitalize;
 }
 
 /* Bottom Container */
@@ -210,7 +228,6 @@ td {
 /* Start list Table */
 
 .start-list-table {
-
   width: fit-content;
   font-size: 25px;
   border: 0;
