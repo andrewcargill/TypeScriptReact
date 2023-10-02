@@ -75,6 +75,8 @@ p {
 }
 
 #timer {
+    padding-top: 70px;
+    padding-bottom: 70px;
     font-size: 4rem;
     border-radius: 4px;
 }
@@ -82,7 +84,7 @@ p {
 .timer-buttons-container {
   display: flex;
   justify-content: space-between;
-  width: 80%;
+  width: 95%;
   padding: 10px;
 }
 
@@ -103,10 +105,12 @@ p {
 }
 
 .next-rider-timer {
-  font-family: 'Lilita One', cursive;
+  padding-top: 30px;
+  /* font-family: 'Lilita One', cursive; */
   text-transform: uppercase;
   font-size: 30px;
-  color: green;
+  font-weight: 400;
+  /* color: green; */
 }
 
 #start-button {
