@@ -65,7 +65,7 @@ function MiddlePreStart() {
             </div>
           }</div>
         <div className='end-reset-comp-buttons-container'>
-          <Button variant="contained" color="primary" onClick={handleToggleActiveAndToggleTimer}>
+          <Button variant="contained" color="secondary" onClick={handleToggleActiveAndToggleTimer}>
             {isActive ? 'End Competition' : 'Start Competition'}
           </Button>
 
@@ -74,7 +74,7 @@ function MiddlePreStart() {
             Rest Competition
           </Button> */}
           <div>
-      <Button variant="contained" color="primary" onClick={handleClickOpen}>
+      <Button variant="contained" color="secondary" onClick={handleClickOpen}>
         Reset Competition
       </Button>
       <Dialog open={open} onClose={handleClose}>
@@ -85,10 +85,10 @@ function MiddlePreStart() {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={handleClose} color="secondary">
             Cancel
           </Button>
-          <Button onClick={handleResetConfirmed} color="primary">
+          <Button onClick={handleResetConfirmed} variant="contained"  color="secondary">
             Reset
           </Button>
         </DialogActions>

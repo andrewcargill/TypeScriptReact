@@ -4,10 +4,12 @@ const theme = createTheme({
   // Customize your theme settings here
   palette: {
     primary: {
-      main: '#007bff',
+      main: '#43a314',
+      // main: '#007bff',
     },
     secondary: {
-      main: '#ff5722',
+      main: '#647aa8',
+      // main: '#8b8d88',
     },
   },
 });

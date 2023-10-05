@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useAppContext } from '../../../../AppState';
-import { Button } from '@mui/material';
+import { Button, ThemeProvider } from '@mui/material';
 import BackupIcon from '@mui/icons-material/Backup';
 import TimerIcon from '@mui/icons-material/Timer';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import DisabledByDefaultIcon from '@mui/icons-material/DisabledByDefault';
+import theme from '../../../../theme';
 
 function Timer() {
   const { activeTimer, updateTimerValue, timerReset, updateTimerReset, timerValue, nextRider, storedNames, updateNextRider, updateStoredNames } = useAppContext();
@@ -102,6 +103,7 @@ function Timer() {
   };
 
   return (
+    <ThemeProvider theme={theme}>
     <div className='timer-display'>
       <div className='next-rider-timer'>
         Rider: {storedNames[nextRider]?.name}
@@ -113,7 +115,7 @@ function Timer() {
         <div className='faults-display'>Faults: 4</div>
       </div>
       <div className='timer-buttons-container start-button'>
-        <Button id='start-button' size='small' variant='contained'  onClick={isRunning ? stopTimer : startTimer}>
+        <Button color='primary' id='start-button' size='small' variant='contained'  onClick={isRunning ? stopTimer : startTimer}>
           {isRunning ? 'Stop' : 'Start'}
         </Button>
         <Button id='fault-button' size='small' variant='contained' color='error' onClick={resetTimer}>Fault</Button>
@@ -130,6 +132,7 @@ function Timer() {
 
     </div>
     </div>
+    </ThemeProvider>
   );
 }
 

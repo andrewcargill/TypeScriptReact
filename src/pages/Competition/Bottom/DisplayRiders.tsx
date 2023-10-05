@@ -17,7 +17,7 @@ function DisplayRiders() {
               key={index}
               style={{
                 fontWeight: index === nextRider ? 'bold' : 'normal',
-                color: rider.finished ? 'pink' : 'inherit',
+                color: rider.finished ? 'green' : 'inherit',
               }}
             >
               <tr key={index}>
