@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useAppContext } from '../../../../AppState';
 
 function ActiveRound() {
@@ -20,8 +20,16 @@ function ActiveRound() {
 
   useEffect(() => {
     const finishedRiders = storedNames.filter((rider) => rider.finished); 
-    finishedRiders.sort((a, b) => a.time - b.time);
-    updateRankedRiders([...finishedRiders]);
+    const finishedRidersNoFaults = finishedRiders.filter((rider => rider.fault === 0));
+    const finishedRidersWithFaults = finishedRiders.filter((rider) => rider.fault > 0);
+    finishedRidersNoFaults.sort((a, b) => a.time - b.time);
+    finishedRidersWithFaults.sort((a, b) => {
+      if (a.fault === b.fault) {
+        return a.time - b.time;
+      }
+      return a.fault - b.fault;
+    });
+    updateRankedRiders([...finishedRidersNoFaults, ...finishedRidersWithFaults]);
   }, [storedNames]);
 
 
@@ -46,7 +54,7 @@ function ActiveRound() {
                   <tr key={index}>
                     <td><p>{index + 1}</p></td>
                     <td><p>{rider.name}</p></td>
-                    <td><p><strong> {formatTime(rider.time)}</strong></p></td>
+                    <td><p><strong> {formatTime(rider.time)} ({rider.fault})</strong></p></td>
                     <td><p>
                       {/* Calculate and display the time difference */}
                       ({index === 0 ? '0' : `+${formatTimeDiff(rider.time - rankedRiders[0].time)}`})

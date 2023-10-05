@@ -4,16 +4,11 @@ import TopWelcome from './TopWelcome';
 import TimerActiveContainer from './TimerActive/TimeActiveContainer';
 
 function TopMainContainer() {
-  const { ridersReady, storedNames, isActive } = useAppContext();
-
-
+  const { isActive } = useAppContext();
 
   return (
     <div>
-
-      {/* <p>Top Main Container</p> */}
       {isActive ? ( <TimerActiveContainer />  ) : ( <TopWelcome /> )}
-
     </div>
   );
 }

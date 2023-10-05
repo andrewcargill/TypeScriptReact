@@ -27,18 +27,12 @@ function CompetitorsList() {
         setIsAlertOpen(false);
     };
 
-
     const handleButtonClick = () => {
-        console.log('storedNames: ' + storedNames);
-
         if (storedNames.some(rider => typeof rider.name === 'string' && rider.name.trim() !== '')) {
             const updatedNames = [...storedNames];
             updateNextRider(0);
-
             handleRidersReady();
         } else {
-            // Display a message or handle the case when storedNames is empty
-            // alert('Please add at least one rider\'s name.');
             openAlert();
         }
     };
@@ -76,8 +70,6 @@ function CompetitorsList() {
                             )}
                         </Button>
                     )}
-
-
                 </div>
             </div>
         </div>

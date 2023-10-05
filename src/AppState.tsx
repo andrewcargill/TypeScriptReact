@@ -5,6 +5,7 @@ interface Rider {
   name: string;
   time: number;
   finished: boolean;
+  fault: number;
 }
 
 // Define the shape of the global state
@@ -55,10 +56,6 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
   const [timerReset, setTimerReset] = useState<boolean>(false);
   const [nextRider, setNextRider] = useState<number>(0);
   const [timerValue, setTimerValue] = useState<number>(0);
-
-  console.log(rankedRiders);
- 
-
   const updateNextRider = (index: number) => {
     setNextRider(index);
   };
@@ -106,7 +103,6 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
     updateTimerReset,
     updateRankedRiders,
     rankedRiders,
-
   };
 
   return <AppContext.Provider value={state}>{children}</AppContext.Provider>;

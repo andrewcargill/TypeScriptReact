@@ -1,5 +1,3 @@
-
-
 p {
   font-size: 14px;
 }
@@ -41,7 +39,7 @@ p {
 
 .title-container {
   width: 100%;
-  display: flex; 
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -75,13 +73,14 @@ p {
   color: white;
   border: solid 2px black;
   border-radius: 10px;
+
 }
 
 #timer {
-    padding-top: 70px;
-    padding-bottom: 10px;
-    font-size: 4rem;
-    border-radius: 4px;
+  padding-top: 70px;
+  padding-bottom: 10px;
+  font-size: 4rem;
+  border-radius: 4px;
 }
 
 .faults-display {
@@ -136,28 +135,30 @@ p {
 /* WINNER COMPONENT */
 .winners-container {
   border: 1px solid black;
-  
+
   display: flex;
   justify-content: space-around;
   flex-direction: row;
   flex-wrap: wrap;
   font-size: 20px;
   align-items: flex-end;
-  padding: 10px;
+  padding: 40px 10px 50px 10px;
 
 }
 
-.third-place-container{
+.third-place-container {
   height: 75px;
   background-color: green;
   color: white;
 }
-.second-place-container{
+
+.second-place-container {
   height: 100px;
   background-color: green;
   color: white;
 }
-.first-place-container{
+
+.first-place-container {
   height: 130px;
   background-color: gold;
 }
@@ -169,14 +170,19 @@ p {
   width: 25%;
   display: flex;
   flex-direction: column;
-  align-items: center; 
+  align-items: center;
   justify-content: end;
   border-radius: 5px;
   text-transform: capitalize;
+  box-shadow: 0px 30px 20px rgba(0, 0, 0, 0.4);
 }
 
 .winner-ranking-number {
   font-weight: 400;
+}
+
+.winner-name {
+  font-size: 12px;
 }
 
 
@@ -215,8 +221,8 @@ thead {
 
 
 td {
-  text-align: center; 
-  vertical-align: middle; 
+  text-align: center;
+  vertical-align: middle;
   text-transform: capitalize;
 }
 
@@ -224,11 +230,12 @@ td {
 
 .add-riders-container {
   padding: 10px;
-  display: flex; 
+  display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 }
+
 .start-list-container {
   width: 100%;
   display: flex;
@@ -276,6 +283,7 @@ td {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

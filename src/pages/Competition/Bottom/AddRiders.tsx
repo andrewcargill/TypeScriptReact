@@ -1,11 +1,12 @@
 import React from 'react';
 import { useAppContext } from '../../../AppState';
-import { Button, Input, TextField } from '@mui/material';
+import { Button, TextField } from '@mui/material';
 
 interface Rider {
   name: string;
   time: number;
   finished: boolean;
+  fault: number;
 }
 
 function NameList() {
@@ -24,7 +25,7 @@ function NameList() {
   };
 
   const handleAddName = () => {
-    const updatedNames = [...storedNames, { name: '', time: 0, finished: false }];
+    const updatedNames = [...storedNames, { name: '', time: 0, finished: false, fault: 0 }];
     updateStoredNames(updatedNames);
   };
 

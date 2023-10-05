@@ -4,12 +4,11 @@ import Timer from './Timer';
 import Winner from './Winner';
 
 function TimerActiveContainer() {
-  const { storedNames, updateStoredNames, nextRider } = useAppContext();
-  const { isActive, toggleActive } = useAppContext();
+  const { nextRider } = useAppContext();
 
   return (
     <div>
-        {nextRider === -1 ? (
+      {nextRider === -1 ? (
         <Winner />
       ) : (
         <Timer />

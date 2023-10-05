@@ -22,7 +22,6 @@ function StopFaultButtons() {
       const updatedNames = [...storedNames];
       updatedNames[nextRider].finished = true;
       updatedNames[nextRider].time = timerValue;
-
       const nextUnfinishedRider = findNextRider();
       updateNextRider(nextUnfinishedRider);
       updateStoredNames(updatedNames);
@@ -34,9 +33,6 @@ function StopFaultButtons() {
   }
 
   useEffect(() => {
-    console.log('activeTimer!!!: ' + activeTimer)
-    // This effect will run whenever toggleTimer changes
-    // You can add any logic here that needs to happen when toggleTimer changes.
   }, [activeTimer]);
 
   return (
@@ -63,15 +59,6 @@ function StopFaultButtons() {
               <button onClick={handleResetTimer} disabled={true}>
                 RESET
               </button>
-              {/* {!toggleTimer && (
-            <button
-              onClick={handleFinishedClick}
-              className="active-button"
-              disabled={toggleTimer}
-            >
-              FINISHED
-            </button>
-          )} */}
             </div>
           ) : (
             <div>
