@@ -42,12 +42,12 @@ function NameList() {
             onChange={(e) => handleNameChange(index, e.target.value)}
           />
           {index > 0 && (
-            <Button size='small' variant='contained' onClick={() => handleRemoveName(index)}>x</Button>
+            <Button size='small' variant='contained' color='secondary' onClick={() => handleRemoveName(index)}>x</Button>
           )}
         </div>
       ))}
       <div>
-        <Button size='small' variant='contained' onClick={handleAddName}>Add Name</Button>
+        <Button size='small' variant='contained'  color='secondary' onClick={handleAddName}>Add Name</Button>
       </div>
       </div>
     </div>

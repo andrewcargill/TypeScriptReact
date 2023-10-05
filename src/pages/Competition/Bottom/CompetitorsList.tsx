@@ -68,7 +68,7 @@ function CompetitorsList() {
                     {isActive ? (
                         ''
                     ) : (
-                        <Button onClick={handleButtonClick}>
+                        <Button variant='contained' color='success' onClick={handleButtonClick}>
                             {ridersReady ? (
                                 'Start competition'
                             ) : (

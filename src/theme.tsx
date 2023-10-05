@@ -11,6 +11,10 @@ const theme = createTheme({
       main: '#647aa8',
       // main: '#8b8d88',
     },
+    success: {
+      main: '#287d1b',
+      // main: '#8b8d88',
+    },
   },
 });
 
