@@ -112,16 +112,17 @@ function Timer() {
         <div id="timer"> {formatTime(elapsedTime)}</div>
         <div className='faults-display'>Faults: 4</div>
       </div>
-      <div className='timer-buttons-container'>
+      <div className='timer-buttons-container start-button'>
         <Button id='start-button' size='small' variant='contained'  onClick={isRunning ? stopTimer : startTimer}>
           {isRunning ? 'Stop' : 'Start'}
         </Button>
+        <Button id='fault-button' size='small' variant='contained' color='error' onClick={resetTimer}>Fault</Button>
        
       </div>
       <div className='timer-buttons-container'>
     
       <Button size='small' variant='outlined' startIcon={<RestartAltIcon />} onClick={resetTimer}>RESET</Button>
-        <Button size='small' variant='contained' color='error' startIcon={<DisabledByDefaultIcon />} onClick={resetTimer}>Fault</Button>
+      
        
         <Button size='small' variant='outlined' startIcon={<BackupIcon />} color='success' onClick={handleFinishedClick} disabled={activeTimer}>
           SUBMIT
