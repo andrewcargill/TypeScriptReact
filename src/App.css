@@ -33,6 +33,10 @@ p {
   padding: 4px;
   border-radius: 5px;
   background-color: white;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  flex-direction: column;
 }
 
 /* TOP CONTIANER */
@@ -219,21 +223,34 @@ thead {
   color: black;
 }
 
+th {
+  text-align: left;
+}
 
 td {
-  text-align: center;
   vertical-align: middle;
   text-transform: capitalize;
 }
+
 
 /* Bottom Container */
 
 .add-riders-container {
   padding: 10px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 90%;
+}
+
+.rider-input-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;  
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-between;
 }
 
 .start-list-container {
@@ -252,6 +269,10 @@ td {
   font-size: 18px;
   border: 0;
 
+}
+
+.display-riders-name {
+  padding-left: 10px;
 }
 
 

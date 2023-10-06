@@ -31,26 +31,31 @@ function NameList() {
 
   return (
     <div className='add-riders-container'>
-      <div>
-      {/* <div>Add Riders</div> */}
-      {storedNames.map((rider: Rider, index: number) => (
-        <div key={index}>
-          <TextField
-            size='small'
-            type="text"
-            placeholder="Enter a name"
-            value={rider.name}
-            onChange={(e) => handleNameChange(index, e.target.value)}
-          />
-          {index > 0 && (
-            <Button size='small' variant='contained' color='secondary' onClick={() => handleRemoveName(index)}>x</Button>
-          )}
-        </div>
-      ))}
-      <div>
-        <Button size='small' variant='contained'  color='secondary' onClick={handleAddName}>Add Name</Button>
+      <div className="rider-input-container">
+     
+          {storedNames.map((rider: Rider, index: number) => (
+            <div key={index}>
+              <TextField
+                size='small'
+                type="text"
+                placeholder="Enter a name"
+                color='secondary'
+                value={rider.name}
+                className='rider-input-field'
+                onChange={(e) => handleNameChange(index, e.target.value)}
+              />
+              {index > 0 && (
+                <Button size='small' variant='contained' color='secondary' onClick={() => handleRemoveName(index)}>x</Button>
+              )}
+            </div>
+          ))}
+   
       </div>
+      <div>
+        <Button size='small' variant='contained' color='secondary' onClick={handleAddName}>Add Rider</Button>
       </div>
+
+
     </div>
   );
 }

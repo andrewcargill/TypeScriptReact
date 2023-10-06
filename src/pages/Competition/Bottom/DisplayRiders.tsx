@@ -17,8 +17,8 @@ function DisplayRiders() {
                 color: rider.finished ? 'green' : 'inherit',
               }}
             >
-              <td>{index + 1}:</td>
-              <td>{rider.name}</td>
+              <td className='display-riders-name'>{index + 1}:</td>
+              <td className='display-riders-name'>{rider.name}</td>
             </tr>
 
           ))}
