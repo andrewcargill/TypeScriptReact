@@ -6,7 +6,7 @@ function DisplayRiders() {
 
   return (
     <div className='start-list-container'>
-      <div>Riders List</div>
+      <div className='title'>Riders List</div>
       <table className='start-list-table'>
         <tbody className='start-list-tbody'>
           {storedNames.map((rider, index) => (

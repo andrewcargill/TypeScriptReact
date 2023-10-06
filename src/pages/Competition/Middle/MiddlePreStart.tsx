@@ -40,10 +40,10 @@ function MiddlePreStart() {
       <div>
         <div>
           {isActive ? <ActiveRound /> :
-            <div className='title-container'>
-              <p>
+            <div className='title-container middle-welcome'>
+              
                 Get Ready to ride!
-              </p>
+              
             </div>
           }</div>
         <div className='end-reset-comp-buttons-container'>

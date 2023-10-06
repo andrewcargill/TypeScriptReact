@@ -49,19 +49,28 @@ p {
   justify-content: center;
 }
 
+.showjumping-title-container {
+  position: relative; /* Set the container to relative positioning */
+  display: inline-block; /* Make the container shrink to fit its content */
+}
+
 .showjumping-title {
   font-family: 'Lilita One', cursive;
+  display: flex;
+  align-items: center;
 }
 
 .showjumping-title div {
-  font-size: 20px;
+  font-size: 30px;
   color: gold;
-  transform: rotate(-10deg); /* Rotate the text */
-  transform-origin: left center; /* Set the rotation origin to the left side */
-  white-space: nowrap; /* Prevent text from wrapping */
-  position: absolute; /* Set the div to absolute positioning */
-  top: 8%; /* Adjust the top value to vertically center */
-  left: 79px; /* Adjust the left value to control overlap */
+  transform: rotate(-10deg); 
+  transform-origin: left center; 
+  white-space: nowrap;
+  position: absolute; 
+  top: 23%;
+  right: 233px; 
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; /* Add black outline */
+  letter-spacing: 0.9px;
 }
 
 .title-image {
@@ -134,6 +143,8 @@ p {
   text-transform: uppercase;
   font-size: 30px;
   font-weight: 400;
+  font-family: 'Lilita One', cursive;
+  /* text-shadow: -1px -1px 0 #a6dd10, 1px -1px 0 #a6dd10, -1px 1px 0 #a6dd10, 1px 1px 0 #a6dd10; */
 }
 
 #start-button {
@@ -150,7 +161,6 @@ p {
 /* WINNER COMPONENT */
 .winners-container {
   border: 1px solid black;
-
   display: flex;
   justify-content: space-around;
   flex-direction: row;
@@ -202,10 +212,21 @@ p {
 
 
 /* MIDDLE SECTION */
+
+.middle-welcome {
+  font-family: 'Lilita One', cursive;
+  font-size: 17px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+ 
+}
+
 .end-reset-comp-buttons-container {
   display: flex;
   justify-content: space-around;
   padding: 5px;
+  padding-bottom: 20px;
+  height: 30px;
 }
 
 .title {
@@ -213,6 +234,8 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: 'Lilita One', cursive;
+  padding-bottom: 10px;
 }
 
 .results-table-container {
@@ -221,6 +244,8 @@ p {
   flex-wrap: wrap;
   align-content: center;
   justify-content: center;
+  padding-bottom: 20px;
+  padding-top: 20px;
 }
 
 /* RESULTS TABLE */
@@ -261,6 +286,8 @@ td {
   align-items: center;
   justify-content: center;
   width: 90%;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .rider-input-container {
@@ -287,6 +314,8 @@ td {
   flex-wrap: wrap;
   align-items: center;
   align-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .rider-input-field {

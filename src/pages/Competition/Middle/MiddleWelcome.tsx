@@ -4,8 +4,8 @@ function MiddleWelcome() {
 
   return (
     <div className='title-container'>
-      <div>
-        <p>Welcome. Please add the riders below!</p> 
+      <div className='middle-welcome'>
+        Welcome. Please add the riders below!
       </div>
     </div>
   );

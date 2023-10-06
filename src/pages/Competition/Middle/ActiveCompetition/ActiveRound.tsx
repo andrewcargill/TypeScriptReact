@@ -41,7 +41,7 @@ function ActiveRound() {
           <thead>
             <tr className='results-header'>
               <th></th>
-              <th>Rider</th>
+              <th>Rider</th>  
               <th>Time</th>
               <th>Diff</th>
             </tr>

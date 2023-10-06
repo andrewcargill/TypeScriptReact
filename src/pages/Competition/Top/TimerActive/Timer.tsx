@@ -120,7 +120,7 @@ function Timer() {
 
         <div className='timer-buttons-container'>
           <Button size='small' variant='outlined' startIcon={<RestartAltIcon />} onClick={resetTimer}>RESET</Button>
-          <Button size='small' variant='outlined' startIcon={<BackupIcon />} color='success' onClick={handleFinishedClick} disabled={activeTimer}>
+          <Button id="submit-button" size='small' variant='outlined' startIcon={<BackupIcon />} color='success' onClick={handleFinishedClick} disabled={activeTimer}>
             SUBMIT
           </Button>
           <Button size='small' variant='outlined' startIcon={<RemoveIcon />} color='success' onClick={handleDeductFaults} disabled={activeTimer}>
