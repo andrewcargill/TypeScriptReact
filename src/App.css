@@ -53,6 +53,17 @@ p {
   font-family: 'Lilita One', cursive;
 }
 
+.showjumping-title div {
+  font-size: 20px;
+  color: gold;
+  transform: rotate(-10deg); /* Rotate the text */
+  transform-origin: left center; /* Set the rotation origin to the left side */
+  white-space: nowrap; /* Prevent text from wrapping */
+  position: absolute; /* Set the div to absolute positioning */
+  top: 8%; /* Adjust the top value to vertically center */
+  left: 79px; /* Adjust the left value to control overlap */
+}
+
 .title-image {
   width: 50%;
   padding-bottom: 30px;

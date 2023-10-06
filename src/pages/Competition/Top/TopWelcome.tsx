@@ -5,6 +5,7 @@ function TopWelcome() {
   return (
     <div className='title-container'>
       <div className='showjumping-title'>
+        <div>Izzie's </div>
         <h5>SHOW JUMPING TIMER </h5>
       </div>
       <div className='title-image'>
