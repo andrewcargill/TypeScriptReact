@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useAppContext } from '../../../../AppState';
 
 function ActiveRound() {
-  
+
   const { storedNames, updateRankedRiders, rankedRiders } = useAppContext();
 
   const formatTime = (time: number): string => {
@@ -19,7 +19,7 @@ function ActiveRound() {
   };
 
   useEffect(() => {
-    const finishedRiders = storedNames.filter((rider) => rider.finished); 
+    const finishedRiders = storedNames.filter((rider) => rider.finished);
     const finishedRidersNoFaults = finishedRiders.filter((rider => rider.fault === 0));
     const finishedRidersWithFaults = finishedRiders.filter((rider) => rider.fault > 0);
     finishedRidersNoFaults.sort((a, b) => a.time - b.time);
@@ -35,37 +35,31 @@ function ActiveRound() {
 
   return (
     <div>
-      <div>
-        <div>
-
-          <div className='results-table-container'>
-            <div className='title'> <div>Results </div></div>
-            <table>
-              <thead>
-                <tr>
-                  <th><p> Placing</p></th>
-                  <th><p> Rider</p></th>
-                  <th><p>Time</p></th>
-                  <th><p>Diff</p></th> {/* Add a new column for the time difference */}
-                </tr>
-              </thead>
-              <tbody>
-                {rankedRiders.map((rider, index) => (
-                  <tr key={index}>
-                    <td><p>{index + 1}</p></td>
-                    <td><p>{rider.name}</p></td>
-                    <td><p><strong> {formatTime(rider.time)} ({rider.fault})</strong></p></td>
-                    <td><p>
-                      {/* Calculate and display the time difference */}
-                      ({index === 0 ? '0' : `+${formatTimeDiff(rider.time - rankedRiders[0].time)}`})
-                    </p>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
+      <div className='results-table-container'>
+        <div className='title'> <div>Results </div></div>
+        <table>
+          <thead>
+            <tr className='results-header'>
+              <th></th>
+              <th>Rider</th>
+              <th>Time</th>
+              <th>Diff</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rankedRiders.map((rider, index) => (
+              <tr key={index} className='results-body'>
+                <td>{index + 1}</td>
+                <td>{rider.name}</td>
+                <td><strong> {formatTime(rider.time)} ({rider.fault})</strong></td>
+                <td>
+                  {/* Calculate and display the time difference */}
+                  ({index === 0 ? '0' : `+${formatTimeDiff(rider.time - rankedRiders[0].time)}`})
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );

@@ -232,6 +232,14 @@ td {
   text-transform: capitalize;
 }
 
+.results-header {
+  font-size: 14px;
+}
+
+.results-body {
+  font-size: 14px;
+}
+
 
 /* Bottom Container */
 
@@ -253,6 +261,14 @@ td {
   justify-content: space-between;
 }
 
+.rider-input-inner-container {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
 .start-list-container {
   width: 100%;
   display: flex;
@@ -261,6 +277,11 @@ td {
   align-items: center;
   align-content: center;
 }
+
+.rider-input-field {
+  color: pink;
+}
+
 
 /* Start list Table */
 
