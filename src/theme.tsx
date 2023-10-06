@@ -12,6 +12,9 @@ const theme = createTheme({
       main: '#287d1b',
     },
   },
+  typography: {
+    // fontFamily: 'Ubuntu Mono',
+  }
 });
 
 export default theme;

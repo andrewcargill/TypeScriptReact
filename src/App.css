@@ -168,8 +168,27 @@ p {
   font-size: 20px;
   align-items: flex-end;
   padding: 40px 10px 50px 10px;
-
 }
+
+.winners-container {
+  position: relative;
+  background: linear-gradient(45deg, #ffcc00, #ffec99);
+  background-size: 200% 100%;
+  animation: sparkle 2s linear infinite;
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+@keyframes sparkle {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
 
 .third-place-container {
   height: 75px;
@@ -229,6 +248,14 @@ p {
   height: 30px;
 }
 
+#start-end-comp-button {
+  height: 40px;
+}
+
+#reset-comp-button {
+  height: 40px;
+}
+
 .title {
   width: auto;
   display: flex;
@@ -280,12 +307,12 @@ td {
 /* Bottom Container */
 
 .add-riders-container {
-  padding: 10px;
+  /* padding: 10px; */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 90%;
+  width: 100%;
   padding-top: 20px;
   padding-bottom: 20px;
 }
@@ -318,9 +345,7 @@ td {
   padding-bottom: 20px;
 }
 
-.rider-input-field {
-  color: pink;
-}
+
 
 
 /* Start list Table */
@@ -333,6 +358,7 @@ td {
 }
 
 .display-riders-name {
+  font-family: 'Ubuntu Mono', monospace;
   padding-left: 10px;
 }
 

@@ -42,7 +42,7 @@ function NameList() {
                 color='secondary'
                 value={rider.name}
                 className='rider-input-field'
-                inputProps={{min: 0, style: { textAlign: 'center' }}}
+                inputProps={{min: 0, style: { textAlign: 'center', fontFamily: 'Ubuntu Mono', }}}
                 onChange={(e) => handleNameChange(index, e.target.value)}
               
               />

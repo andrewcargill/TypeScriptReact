@@ -47,11 +47,11 @@ function MiddlePreStart() {
             </div>
           }</div>
         <div className='end-reset-comp-buttons-container'>
-          <Button variant="contained" color="secondary" onClick={handleToggleActiveAndToggleTimer}>
+          <Button id='start-end-comp-button' variant="contained" color="secondary" onClick={handleToggleActiveAndToggleTimer}>
             {isActive ? 'End Competition' : 'Start Competition'}
           </Button>
           <div>
-            <Button variant="contained" color="secondary" onClick={handleClickOpen}>
+            <Button id='rest-comp-button' variant="contained" color="secondary" onClick={handleClickOpen}>
               Reset Competition
             </Button>
             <Dialog open={open} onClose={handleClose}>
