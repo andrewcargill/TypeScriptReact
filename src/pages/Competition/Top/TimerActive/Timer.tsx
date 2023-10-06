@@ -28,7 +28,6 @@ function Timer() {
   }
 
   const handleFinishedClick = () => {
-
     if (nextRider >= 0 && nextRider < storedNames.length) {
       while (timerValue === null) {
         setTimeout(() => {
@@ -42,6 +41,7 @@ function Timer() {
       updateNextRider(nextUnfinishedRider);
       updateStoredNames(updatedNames);
       resetTimer();
+      console.log(storedNames);
     }
   };
 
