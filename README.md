@@ -1,46 +1,51 @@
-# Getting Started with Create React App
+# Izzi's Show Jumping Timer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+As a family we are very active within the sport of show jumping. My daughters compete in club, regional and national competitions.
 
-## Available Scripts
+At the club level competitions are timed with paper and a smart phone - while at regional and national level an online app is used to officiate over times and ranking.
 
-In the project directory, you can run:
+I saw a gap in the market for an app that could be used at club level and for training. 
 
-### `npm start`
+Alongside this - many young riders enjoy 'hobby horse' jumping - and so this app also had this user in mind.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Programming languages and approach
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+I primarily made this app to learn TypeScript. I did not want the project to become too complex so I chose to manage all data within the frontend and used ReactJS as my main framework.
 
-### `npm test`
+### `TypeScript`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+As a new programmer I am always wanting to expand on my current skill base while also broadening on what I know. I had not word with TypeScript before and so was interested to learn on the pros and cons of incorporating it into a React frontend. 
 
-### `npm run build`
+Now that the basic app is built I can reflect in saying that I have really enjoyed TypeScript. I discovered that TypeScript really helps to highlight coding errors before testing and this saved alot of time in bug-finding and code fixing.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `React Global API`
+Previous projects have either required a stand-alone frontend or custom API's with  linked frontends.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This application did not require an API. The data did not need to be stored for later recall or use.  
 
-### `npm run eject`
+At the time of writing I feel very comfortable developing within React and the way that useState handles the update of variables etc.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+I was needing to manage states globally, rather than pass states between sibblings, as I wanted unrelated components to be able to access various states. I found Gloabl API to be a game-changer in developing this app and something I really am glad to have discovered and learnt more about.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### `Material UI`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+This project makes use of Material UI for basic styling. I have used MUI in previous projects and find it leads to quick styling and creation of UI's. 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+The limitations are when you need to custom style beyond the basics of color and size, but as this project was more focused on learning TypeScript I feel it was a good choice. 
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Future Developments
+### `UX Design`
+The app is basically styled - enough so that it is clear to use and interact with. I would like to spend more time styling the app for a specific target audience. Riding is a sport for 4 year olds to 80 year olds - so obviously this would be styled very differently depending on the target age range. More market research would be needed to identify the largest demographic.  
+
+
+### `React Native`
+The development of smartphone apps is something I would like to explore. Currently the project is geared around my learning and so more development would be needed on the app if I were to choose to release it for smartphones.
+
+
+## Link to App
+
+You can try the app here: [Izzi's Show Jumping Timer](https://andrewcargill.github.io/typescript_react/)
+
