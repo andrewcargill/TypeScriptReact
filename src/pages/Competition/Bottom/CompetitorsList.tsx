@@ -1,7 +1,9 @@
 import React from 'react';
 import AddRiders from './AddRiders';
-import { Alert, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Snackbar } from '@mui/material';
+import { Alert, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Snackbar, Tooltip } from '@mui/material';
 import DisplayRiders from './DisplayRiders';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import { useAppContext } from '../../../AppState';
 import { useState } from 'react';
 
@@ -28,7 +30,7 @@ function CompetitorsList() {
     const closeAlert = () => {
         setIsAlertOpen(false);
     };
-    
+
 
     const handleButtonClick = () => {
         if (storedNames.some(rider => typeof rider.name === 'string' && rider.name.trim() !== '')) {
@@ -42,27 +44,28 @@ function CompetitorsList() {
 
     const handleClickOpen = () => {
         setOpen(true);
-      };
-    
-      const handleClose = () => {
+    };
+
+    const handleClose = () => {
         setOpen(false);
-      };
+    };
 
     const handleClearAllClickOpen = () => {
         setClearAllOpen(true);
-      };
-    
-      const handleClearAllClickClose = () => {
+    };
+
+    const handleClearAllClickClose = () => {
         setClearAllOpen(false);
-      };
+    };
 
     const handleResetConfirmed = () => {
         // Create a new array with rider names only
         const riderNames = storedNames.map((rider) => ({ name: rider.name, time: 0, fault: 0, finished: false }));
         updateNextRider(0);
         updateStoredNames(riderNames);
+        toggleActive();
         setOpen(false);
-      };
+    };
 
     const handleResetAllData = () => {
         // Create a new array with rider names only
@@ -71,10 +74,10 @@ function CompetitorsList() {
         toggleActive();
         handleRidersReady();
         setClearAllOpen(false);
-      };
+    };
 
     return (
-        <div>
+        <div className='bottom-container'>
 
             <Snackbar
                 open={isAlertOpen}
@@ -96,52 +99,57 @@ function CompetitorsList() {
             <div>
                 <div className='title-container'>
                     {isActive ? (
-                        <div>
-                        <div>
-                               {/* RESET BUTTON MODULE */}
-                        <Button id='rest-comp-button' variant="contained" color="secondary" onClick={handleClickOpen}>
-                          Reset Competition
-                        </Button>
-                        <Dialog open={open} onClose={handleClose}>
-                          <DialogTitle>Confirm Reset</DialogTitle>
-                          <DialogContent>
-                            <DialogContentText>
-                              This will KEEP ALL RIDERS NAMES but delete the saved times.
-                            </DialogContentText>
-                          </DialogContent>
-                          <DialogActions>
-                            <Button onClick={handleClose} color="secondary">
-                              Cancel
-                            </Button>
-                            <Button onClick={handleResetConfirmed} variant="contained" color="secondary">
-                              Reset
-                            </Button>
-                          </DialogActions>
-                        </Dialog>
-                      </div>
-                        <div>
-                               {/* RESET BUTTON MODULE */}
-                        <Button id='rest-comp-button' variant="contained" color="secondary" onClick={handleClearAllClickOpen}>
-                          Clear All Data
-                        </Button>
-                        <Dialog open={clearAllOpen} onClose={handleClearAllClickClose}>
-                          <DialogTitle>Confirm Reset</DialogTitle>
-                          <DialogContent>
-                            <DialogContentText>
-                             This will DELETE ALL RIDERS NAMES AND TIMES so that you can start a new competition.
-                            </DialogContentText>
-                          </DialogContent>
-                          <DialogActions>
-                            <Button onClick={handleClearAllClickClose} color="secondary">
-                              Cancel
-                            </Button>
-                            <Button onClick={handleResetAllData} variant="contained" color="secondary">
-                              Reset
-                            </Button>
-                          </DialogActions>
-                        </Dialog>
-                      </div>
-                      </div>
+                        <div className='reset-restart-buttons-container'>
+                            <div className='reset-button-container'>
+                                {/* RESET BUTTON MODULE */}
+                                <Tooltip title="Reset Competition" placement="top">
+                                <Button id='reset-comp-button' size="small" variant="outlined" color="secondary" onClick={handleClickOpen}>
+                                    <RestartAltIcon />
+                                </Button>
+                                </Tooltip>
+                                <Dialog open={open} onClose={handleClose}>
+                                    <DialogTitle>Confirm Reset</DialogTitle>
+                                    <DialogContent>
+                                        <DialogContentText>
+                                            Will you run the same competition? This will KEEP ALL RIDERS NAMES but delete all saved times.
+                                        </DialogContentText>
+                                    </DialogContent>
+                                    <DialogActions>
+                                        <Button onClick={handleClose} color="secondary">
+                                            Cancel
+                                        </Button>
+                                        <Button onClick={handleResetConfirmed} variant="contained" color="secondary">
+                                            Reset
+                                        </Button>
+                                    </DialogActions>
+                                </Dialog>
+                            </div>
+                            <div className='delete-button-container'>
+                                {/* RESET BUTTON MODULE */}
+                                <Tooltip title="Delete All Riders" placement="top">
+                                <Button id='delete-comp-button' variant="outlined" color="secondary" onClick={handleClearAllClickOpen}>
+                                    <DeleteForeverIcon />
+                                </Button>
+                                </Tooltip>
+                                <Dialog open={clearAllOpen} onClose={handleClearAllClickClose}>
+                                    <DialogTitle>Confirm Reset</DialogTitle>
+                                    <DialogContent>
+                                        <DialogContentText>
+                                            Will you start a new competition?
+                                            This will DELETE ALL RIDERS NAMES AND SAVED TIMES.
+                                        </DialogContentText>
+                                    </DialogContent>
+                                    <DialogActions>
+                                        <Button onClick={handleClearAllClickClose} color="secondary">
+                                            Cancel
+                                        </Button>
+                                        <Button onClick={handleResetAllData} variant="contained" color="secondary">
+                                            Reset
+                                        </Button>
+                                    </DialogActions>
+                                </Dialog>
+                            </div>
+                        </div>
                     ) : (
                         <Button variant='contained' color='success' onClick={handleButtonClick}>
                             {ridersReady ? (
