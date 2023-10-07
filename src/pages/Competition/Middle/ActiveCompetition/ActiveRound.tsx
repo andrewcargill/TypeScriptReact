@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useAppContext } from '../../../../AppState';
+import { Tooltip } from '@mui/material';
 
 function ActiveRound() {
 
@@ -41,9 +42,13 @@ function ActiveRound() {
           <thead>
             <tr className='results-header'>
               <th></th>
-              <th>Rider</th>  
+              <th>Rider</th> 
+              <Tooltip title="Riders Time (Total Faults)" placement='bottom'>
               <th>Time</th>
+              </Tooltip>
+              <Tooltip title="Difference between 1st place and listed rider" placement='bottom'>
               <th>Diff</th>
+              </Tooltip>
             </tr>
           </thead>
           <tbody>
