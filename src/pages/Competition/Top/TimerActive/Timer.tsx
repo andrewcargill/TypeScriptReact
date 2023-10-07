@@ -41,7 +41,6 @@ function Timer() {
       updateNextRider(nextUnfinishedRider);
       updateStoredNames(updatedNames);
       resetTimer();
-      console.log(storedNames);
     }
   };
 

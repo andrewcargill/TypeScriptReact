@@ -32,7 +32,6 @@ function NameList() {
   return (
     <div className='add-riders-container'>
       <div className="rider-input-container">
-     
           {storedNames.map((rider: Rider, index: number) => (
             <div key={index} className='rider-input-inner-container'>
               <TextField
@@ -44,20 +43,16 @@ function NameList() {
                 className='rider-input-field'
                 inputProps={{min: 0, style: { textAlign: 'center', fontFamily: 'Ubuntu Mono', }}}
                 onChange={(e) => handleNameChange(index, e.target.value)}
-              
               />
               {index > 0 && (
                 <Button size='small' variant='contained' color='secondary' onClick={() => handleRemoveName(index)}>x</Button>
               )}
             </div>
           ))}
-   
       </div>
       <div>
         <Button size='small' variant='contained' color='secondary' onClick={handleAddName}>Add Rider</Button>
       </div>
-
-
     </div>
   );
 }

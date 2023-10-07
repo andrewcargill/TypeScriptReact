@@ -1,11 +1,9 @@
-import { useState } from 'react';
 import React from 'react';
 import { useAppContext } from '../../../AppState';
 import ActiveRound from './ActiveCompetition/ActiveRound';
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
 
 function MiddlePreStart() {
-  const { storedNames, updateStoredNames, nextRider, updateNextRider } = useAppContext();
   const { isActive, toggleActive } = useAppContext();
   
   const handleToggleActiveAndToggleTimer = () => {
@@ -23,10 +21,8 @@ function MiddlePreStart() {
       <div>
         <div>
           {isActive ? <ActiveRound /> :
-            <div className='title-container middle-welcome'>
-              
+            <div className='title-container middle-welcome'>      
                 Get Ready to ride!
-              
             </div>
           }</div>
         <div className='end-reset-comp-buttons-container'>

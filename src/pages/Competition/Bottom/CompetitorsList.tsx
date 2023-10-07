@@ -68,7 +68,6 @@ function CompetitorsList() {
     };
 
     const handleResetAllData = () => {
-        // Create a new array with rider names only
         updateNextRider(0);
         updateStoredNames([]);
         toggleActive();
@@ -90,7 +89,6 @@ function CompetitorsList() {
                 </Alert>
             </Snackbar>
 
-            {/* <h5>Competitors Component</h5> */}
             {ridersReady ? (
                 <AddRiders />
             ) : (
@@ -125,7 +123,7 @@ function CompetitorsList() {
                                 </Dialog>
                             </div>
                             <div className='delete-button-container'>
-                                {/* RESET BUTTON MODULE */}
+                                {/* DELETE BUTTON MODULE */}
                                 <Tooltip title="Delete All Riders" placement="top">
                                 <Button id='delete-comp-button' variant="outlined" color="secondary" onClick={handleClearAllClickOpen}>
                                     <DeleteForeverIcon />
