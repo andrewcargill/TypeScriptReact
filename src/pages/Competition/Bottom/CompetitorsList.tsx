@@ -109,7 +109,7 @@ function CompetitorsList() {
                                     <DialogTitle>Confirm Reset</DialogTitle>
                                     <DialogContent>
                                         <DialogContentText>
-                                            Will you run the same competition? This will KEEP ALL RIDERS NAMES but delete all saved times.
+                                            This will clear all riders times
                                         </DialogContentText>
                                     </DialogContent>
                                     <DialogActions>
@@ -133,8 +133,8 @@ function CompetitorsList() {
                                     <DialogTitle>Confirm Reset</DialogTitle>
                                     <DialogContent>
                                         <DialogContentText>
-                                            Will you start a new competition?
-                                            This will DELETE ALL RIDERS NAMES AND SAVED TIMES.
+                                            This will clear all stored data
+                                            
                                         </DialogContentText>
                                     </DialogContent>
                                     <DialogActions>
@@ -149,9 +149,9 @@ function CompetitorsList() {
                             </div>
                         </div>
                     ) : (
-                        <Button variant='contained' color='success' onClick={handleButtonClick}>
+                        <Button size='small' variant='contained' color='secondary' onClick={handleButtonClick}>
                             {ridersReady ? (
-                                'Save'
+                                'Start'
                             ) : (
                                 'Edit names'
                             )}

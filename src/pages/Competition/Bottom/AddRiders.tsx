@@ -51,7 +51,7 @@ function NameList() {
           ))}
       </div>
       <div>
-        <Button size='small' variant='contained' color='secondary' onClick={handleAddName}>Add Rider</Button>
+        <Button size='small' variant='contained' color='primary' onClick={handleAddName}>Add Rider</Button>
       </div>
     </div>
   );

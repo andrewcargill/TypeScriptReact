@@ -21,15 +21,16 @@ function MiddlePreStart() {
       <div>
         <div>
           {isActive ? <ActiveRound /> :
-            <div className='title-container middle-welcome'>      
-                Get Ready to ride!
+            <div className='middle-welcome'>      
+                <div> Get Ready to ride!</div>
+               
             </div>
           }</div>
         <div className='end-reset-comp-buttons-container'>
           {isActive ? (
           ''
           ):(
-            <Button id='start-end-comp-button' variant="contained" color="secondary" onClick={handleToggleActiveAndToggleTimer}>
+            <Button id='start-end-comp-button' size='large' variant="contained" color="success" onClick={handleToggleActiveAndToggleTimer}>
             {isActive ? 'End Competition' : 'Start Competition'}
           </Button>
           )}
