@@ -37,11 +37,11 @@ function NameList() {
               <TextField
                 size='small'
                 type="text"
-                placeholder="Enter a name"
+                placeholder="Enter name"
                 color='secondary'
                 value={rider.name}
                 className='rider-input-field'
-                inputProps={{min: 0, style: { textAlign: 'center', fontFamily: 'Ubuntu Mono', }}}
+                inputProps={{min: 0, style: { textAlign: 'center' }}}
                 onChange={(e) => handleNameChange(index, e.target.value)}
               />
               {index > 0 && (

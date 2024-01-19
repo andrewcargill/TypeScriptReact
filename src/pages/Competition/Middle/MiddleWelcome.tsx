@@ -5,7 +5,10 @@ function MiddleWelcome() {
   return (
     <div className='title-container'>
       <div className='middle-welcome'>
-        Welcome. Please add the riders below!
+        <h1>Welcome</h1>
+        <div>Begin a new competition by adding the 
+          riders names below. </div>
+       
       </div>
     </div>
   );
